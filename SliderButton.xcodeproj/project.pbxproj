@@ -13,6 +13,7 @@
 		1D55EBA11C03BEFC00122950 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1D55EBA01C03BEFC00122950 /* Assets.xcassets */; };
 		1D55EBAF1C03BEFC00122950 /* SliderButtonTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D55EBAE1C03BEFC00122950 /* SliderButtonTests.m */; };
 		1D55EBBA1C03BEFC00122950 /* SliderButtonUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D55EBB91C03BEFC00122950 /* SliderButtonUITests.m */; };
+		1D55EBCD1C03C8CD00122950 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D55EBCC1C03C8CD00122950 /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		1D55EBB51C03BEFC00122950 /* SliderButtonUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SliderButtonUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D55EBB91C03BEFC00122950 /* SliderButtonUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SliderButtonUITests.m; sourceTree = "<group>"; };
 		1D55EBBB1C03BEFC00122950 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1D55EBCC1C03C8CD00122950 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 		1D55EB881C03BEFC00122950 = {
 			isa = PBXGroup;
 			children = (
+				1D55EBCC1C03C8CD00122950 /* Main.storyboard */,
 				1D55EB931C03BEFC00122950 /* SliderButton */,
 				1D55EBAD1C03BEFC00122950 /* SliderButtonTests */,
 				1D55EBB81C03BEFC00122950 /* SliderButtonUITests */,
@@ -97,10 +100,7 @@
 		1D55EB931C03BEFC00122950 /* SliderButton */ = {
 			isa = PBXGroup;
 			children = (
-				1D55EB971C03BEFC00122950 /* AppDelegate.h */,
-				1D55EB981C03BEFC00122950 /* AppDelegate.m */,
-				1D55EB9A1C03BEFC00122950 /* ViewController.h */,
-				1D55EB9B1C03BEFC00122950 /* ViewController.m */,
+				1D55EBC81C03C47600122950 /* SBDemo */,
 				1D55EBA01C03BEFC00122950 /* Assets.xcassets */,
 				1D55EBA51C03BEFC00122950 /* Info.plist */,
 				1D55EB941C03BEFC00122950 /* Supporting Files */,
@@ -132,6 +132,17 @@
 				1D55EBBB1C03BEFC00122950 /* Info.plist */,
 			);
 			path = SliderButtonUITests;
+			sourceTree = "<group>";
+		};
+		1D55EBC81C03C47600122950 /* SBDemo */ = {
+			isa = PBXGroup;
+			children = (
+				1D55EB971C03BEFC00122950 /* AppDelegate.h */,
+				1D55EB981C03BEFC00122950 /* AppDelegate.m */,
+				1D55EB9A1C03BEFC00122950 /* ViewController.h */,
+				1D55EB9B1C03BEFC00122950 /* ViewController.m */,
+			);
+			name = SBDemo;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -237,6 +248,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1D55EBCD1C03C8CD00122950 /* Main.storyboard in Resources */,
 				1D55EBA11C03BEFC00122950 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -471,6 +483,7 @@
 				1D55EBC01C03BEFC00122950 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1D55EBC11C03BEFC00122950 /* Build configuration list for PBXNativeTarget "SliderButtonTests" */ = {
 			isa = XCConfigurationList;
@@ -479,6 +492,7 @@
 				1D55EBC31C03BEFC00122950 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1D55EBC41C03BEFC00122950 /* Build configuration list for PBXNativeTarget "SliderButtonUITests" */ = {
 			isa = XCConfigurationList;
@@ -487,6 +501,7 @@
 				1D55EBC61C03BEFC00122950 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
