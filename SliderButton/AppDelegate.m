@@ -23,7 +23,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     _mainVController = [[ViewController alloc] init];
-    _mainVController.view.backgroundColor = [UIColor greenColor];
+    _mainVController.view.backgroundColor = [UIColor whiteColor];
     _navController = [[UINavigationController alloc] initWithRootViewController:_mainVController];
 
     self.window.rootViewController = _navController;
