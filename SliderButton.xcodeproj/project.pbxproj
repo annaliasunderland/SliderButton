@@ -51,6 +51,7 @@
 		1D55EBBB1C03BEFC00122950 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1D55EBCC1C03C8CD00122950 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		1D9318A51C03CA9C000A2C7C /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		B3179ED41C03D0A5004C8909 /* Paragraph.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = Paragraph.rtf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +145,7 @@
 				1D55EB981C03BEFC00122950 /* AppDelegate.m */,
 				1D55EB9A1C03BEFC00122950 /* ViewController.h */,
 				1D55EB9B1C03BEFC00122950 /* ViewController.m */,
+				B3179ED41C03D0A5004C8909 /* Paragraph.rtf */,
 			);
 			name = SBDemo;
 			sourceTree = "<group>";
