@@ -18,8 +18,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    SBDemoView *demoView = [[SBDemoView alloc] initWithFrame:CGRectMake(0, 150, self.view.frame.size.width, 100)];
+    float FRAME_WIDTH = self.view.frame.size.width;
+    SBDemoView *demoView = [[SBDemoView alloc] initWithFrame:CGRectMake(0, 150, FRAME_WIDTH, 100)];
+    SliderButton *sbutton = [[SliderButton alloc] initWithFrame:CGRectMake(0, 0, FRAME_WIDTH, 100)];
+    [demoView addSubview:sbutton];
+    
     [self.view addSubview:demoView];
+    
+    
+    
 //    SliderButton *demoButton = [[SliderButton alloc] initWithFrame:CGRectMake(0, 150, self.view.frame.size.width, 50)];
 //    [demoView addSubview:demoButton];
     // Do any additional setup after loading the view, typically from a nib.
