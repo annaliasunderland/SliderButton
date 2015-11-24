@@ -9,6 +9,7 @@
 
 #import "AppDelegate.h"
 #import "ViewController.h"
+#import "SBSimpleDemo.h"
 #import "UIColor+SliderButton.h"
 
 @interface AppDelegate ()
@@ -16,7 +17,8 @@
 @end
 
 @implementation AppDelegate {
-    ViewController *_mainVController;
+//    ViewController *_mainVController;
+    SBSimpleDemo *_mainVController;
     UINavigationController *_navController;
 }
 
@@ -25,9 +27,7 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
     // Main VC
-    _mainVController = [[ViewController alloc] init];
-    _mainVController.title = @"Jeff Huang";
-    _mainVController.view.backgroundColor = [UIColor whiteColor];
+    _mainVController = [[SBSimpleDemo alloc] init];
     
     // Nav
     _navController = [[UINavigationController alloc] initWithRootViewController:_mainVController];

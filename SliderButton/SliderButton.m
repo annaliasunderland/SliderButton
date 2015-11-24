@@ -83,20 +83,37 @@
 
 -(void)endTrackingWithTouch:(UITouch *)touch withEvent:(UIEvent *)event {
     if (CGRectContainsRect(_sliderEndZone, _sliderTag.frame)) {
-        _tail.frame = CGRectMake(0,0,_fWidth,_fHeight);
-        _sliderTag.hidden = YES;
+        [self _snapToComplete];
         [self sendActionsForControlEvents:UIControlEventValueChanged];
     } else {
-        _tail.frame = CGRectMake(0,_fHeight,_fWidth,0);
-        _sliderTag.frame = _sliderStartFrame;
+        [self _resetToStart];
     }
 }
 
--(void)resetSliderButton {
-    
-    _sliderTag.frame = _sliderStartFrame;
+
+-(void)_resetToStart {
+    [CATransaction begin];
+    [CATransaction setDisableActions:YES];
     _sliderTag.hidden = NO;
-    _tail.frame = CGRectMake(0, _fHeight, _fWidth, 0);
+    _tail.frame = CGRectMake(0,_fHeight,_fWidth,0);
+    _sliderTag.frame = _sliderStartFrame;
+    [CATransaction commit];
+}
+
+-(void)_snapToComplete {
+    [CATransaction begin];
+    [CATransaction setDisableActions:YES];
+    _tail.frame = CGRectMake(0,0,_fWidth,_fHeight);
+    _sliderTag.hidden = YES;
+    [CATransaction commit];
+}
+
+-(void)resetSliderButton {
+    [self _resetToStart];
+}
+
+-(void)resetSliderButtonAfter:(float)delay {
+    [self performSelector:@selector(_resetToStart) withObject:nil afterDelay:delay];
 }
 
 @end
