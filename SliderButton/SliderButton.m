@@ -5,7 +5,6 @@
 //  Created by Annalia Sunderland on 11/23/15.
 //  Copyright © 2015 Annalia Sunderland. All rights reserved.
 //
-//  TODO: Swipe up down left right
 
 #import "SliderButton.h"
 
@@ -50,7 +49,7 @@
 # pragma mark - Update Views
 
 -(void) _moveSliderTo:(CGPoint) newOrigin {
-    // For now, only move up
+    // For now, only slides vertically
     float newY = newOrigin.y - self.frame.origin.y;
     newY = MIN(_fHeight - _sHeight, newY);
     newY = MAX(0, newY);
@@ -85,11 +84,12 @@
     if (CGRectContainsRect(_sliderEndZone, _sliderTag.frame)) {
         _tail.frame = CGRectMake(0,0,_fWidth,_fHeight);
         _sliderTag.hidden = YES;
-        NSLog(@"COMPLETE.");
+        [self sendActionsForControlEvents:UIControlEventValueChanged];
     } else {
         _tail.frame = CGRectMake(0,_fHeight,_fWidth,0);
         _sliderTag.frame = _sliderStartFrame;
     }
 }
+
 
 @end

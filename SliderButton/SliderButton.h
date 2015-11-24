@@ -10,5 +10,4 @@
 
 @interface SliderButton : UIControl
 
-//-(void)completedSlide:(SliderButton *sb);
 @end
