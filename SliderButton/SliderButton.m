@@ -74,39 +74,32 @@
         };
         case SliderButtonDirectionDown: {
             _sliderStartFrame = CGRectMake(_fWidth/2 - _sWidth/2,
-                                           _sHeight,
+                                           0,
                                            _sWidth,
                                            _sHeight);
-            _sliderEndZone = CGRectMake(0,_fHeight - _sHeight*1.5, _fWidth,_sHeight*1.5);
-            _tailStartFrame = CGRectMake(0,0,_fWidth,_fHeight);
-            _tailEndFrame = CGRectMake(0, _fHeight, _fWidth, 0);
+            _sliderEndZone = CGRectMake(0,_fHeight - _sHeight*1.5, _fWidth, _sHeight*1.5);
+            _tailStartFrame = CGRectMake(0,0,_fWidth,_fHeight);// TODO
+            _tailEndFrame = CGRectMake(0, _fHeight, _fWidth, 0);// TODO
             return;
         };
         case SliderButtonDirectionLeft: {
-//            _sliderStartFrame = CGRectMake(0, 0, _sHeight*1.5, _fHeight);
-//            _sliderEndZone = CGRectMake(_fWidth/2 - _sWidth/2,
-//                                        _fHeight - _sHeight,
-//                                        _sWidth,
-//                                        _sHeight);
-//            _tailStartFrame = CGRectMake(0,0,_fWidth,_fHeight);
-//            _tailEndFrame = CGRectMake(0, _fHeight, _fWidth, 0);
-            _sliderStartFrame = CGRectMake(_fWidth/2 - _sWidth/2,
-                                           _fHeight - _sHeight,
+            _sliderStartFrame = CGRectMake(_fWidth - _sWidth,
+                                           _fWidth/2 - _sHeight/2,
                                            _sWidth,
                                            _sHeight);
-            _sliderEndZone = CGRectMake(0, 0, _fWidth, _sHeight*1.5);
-            _tailStartFrame = CGRectMake(0, _fHeight, _fWidth, 0);
-            _tailEndFrame = CGRectMake(0,0,_fWidth,_fHeight);
+            _sliderEndZone = CGRectMake(0, 0, _sWidth*1.5, _fHeight);
+            _tailStartFrame = CGRectMake(0, _fHeight, _fWidth, 0);// TODO
+            _tailEndFrame = CGRectMake(0,0,_fWidth,_fHeight);// TODO
             return;
         }
         case SliderButtonDirectionRight: {
-            _sliderStartFrame = CGRectMake(_fWidth/2 - _sWidth/2,
-                                           _fHeight - _sHeight,
+            _sliderStartFrame = CGRectMake(0,
+                                           _fHeight/2 - _sHeight/2,
                                            _sWidth,
-                                           _sHeight);
-            _sliderEndZone = CGRectMake(0, 0, _fWidth, _sHeight*1.5);
-            _tailStartFrame = CGRectMake(0, _fHeight, _fWidth, 0);
-            _tailEndFrame = CGRectMake(0,0,_fWidth,_fHeight);
+                                           _sHeight);// TODO
+            _sliderEndZone = CGRectMake(0, 0, _fWidth, _sHeight*1.5);// TODO
+            _tailStartFrame = CGRectMake(0, _fHeight, _fWidth, 0);// TODO
+            _tailEndFrame = CGRectMake(0,0,_fWidth,_fHeight);// TODO
             return;
         }
     }
