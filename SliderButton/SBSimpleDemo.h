@@ -1,5 +1,5 @@
 //
-//  SliderButton.h
+//  SBSimpleDemo.h
 //  SliderButton
 //
 //  Created by Annalia Sunderland on 11/23/15.
@@ -8,9 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SliderButton : UIControl
+@interface SBSimpleDemo : UIViewController
 
-
--(void) resetSliderButton;
--(void) resetSliderButtonAfter:(float)delay;
 @end

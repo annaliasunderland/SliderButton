@@ -17,6 +17,8 @@
 		1D7E4E2D1C03CCC100E0F204 /* SliderButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D7E4E2C1C03CCC100E0F204 /* SliderButton.m */; };
 		1D7E4E301C03CEB000E0F204 /* SBDemoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D7E4E2F1C03CEB000E0F204 /* SBDemoView.m */; };
 		1D9318A61C03CA9C000A2C7C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D9318A51C03CA9C000A2C7C /* LaunchScreen.storyboard */; };
+		1DD5DCDE1C03EC4C0044DF73 /* UIColor+SliderButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DD5DCDD1C03EC4C0044DF73 /* UIColor+SliderButton.m */; };
+		1DD5DCE11C03FB760044DF73 /* SBSimpleDemo.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DD5DCE01C03FB760044DF73 /* SBSimpleDemo.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +59,10 @@
 		1D7E4E2E1C03CEB000E0F204 /* SBDemoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBDemoView.h; sourceTree = "<group>"; };
 		1D7E4E2F1C03CEB000E0F204 /* SBDemoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBDemoView.m; sourceTree = "<group>"; };
 		1D9318A51C03CA9C000A2C7C /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		1DD5DCDC1C03EC4C0044DF73 /* UIColor+SliderButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+SliderButton.h"; sourceTree = "<group>"; };
+		1DD5DCDD1C03EC4C0044DF73 /* UIColor+SliderButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+SliderButton.m"; sourceTree = "<group>"; };
+		1DD5DCDF1C03FB760044DF73 /* SBSimpleDemo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBSimpleDemo.h; sourceTree = "<group>"; };
+		1DD5DCE01C03FB760044DF73 /* SBSimpleDemo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBSimpleDemo.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +121,8 @@
 				1D55EB941C03BEFC00122950 /* Supporting Files */,
 				1D7E4E2B1C03CCC100E0F204 /* SliderButton.h */,
 				1D7E4E2C1C03CCC100E0F204 /* SliderButton.m */,
+				1DD5DCDC1C03EC4C0044DF73 /* UIColor+SliderButton.h */,
+				1DD5DCDD1C03EC4C0044DF73 /* UIColor+SliderButton.m */,
 			);
 			path = SliderButton;
 			sourceTree = "<group>";
@@ -152,6 +160,8 @@
 				1D55EB981C03BEFC00122950 /* AppDelegate.m */,
 				1D55EB9A1C03BEFC00122950 /* ViewController.h */,
 				1D55EB9B1C03BEFC00122950 /* ViewController.m */,
+				1DD5DCDF1C03FB760044DF73 /* SBSimpleDemo.h */,
+				1DD5DCE01C03FB760044DF73 /* SBSimpleDemo.m */,
 				1D7E4E2E1C03CEB000E0F204 /* SBDemoView.h */,
 				1D7E4E2F1C03CEB000E0F204 /* SBDemoView.m */,
 			);
@@ -290,9 +300,11 @@
 			files = (
 				1D7E4E2D1C03CCC100E0F204 /* SliderButton.m in Sources */,
 				1D55EB9C1C03BEFC00122950 /* ViewController.m in Sources */,
+				1DD5DCE11C03FB760044DF73 /* SBSimpleDemo.m in Sources */,
 				1D55EB991C03BEFC00122950 /* AppDelegate.m in Sources */,
 				1D7E4E301C03CEB000E0F204 /* SBDemoView.m in Sources */,
 				1D55EB961C03BEFC00122950 /* main.m in Sources */,
+				1DD5DCDE1C03EC4C0044DF73 /* UIColor+SliderButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

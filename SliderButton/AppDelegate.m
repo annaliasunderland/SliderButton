@@ -9,23 +9,32 @@
 
 #import "AppDelegate.h"
 #import "ViewController.h"
+#import "SBSimpleDemo.h"
+#import "UIColor+SliderButton.h"
 
 @interface AppDelegate ()
 
 @end
 
 @implementation AppDelegate {
-    ViewController *_mainVController;
+//    ViewController *_mainVController;
+    SBSimpleDemo *_mainVController;
     UINavigationController *_navController;
 }
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    _mainVController = [[ViewController alloc] init];
-    _mainVController.view.backgroundColor = [UIColor whiteColor];
+    
+    // Main VC
+    _mainVController = [[SBSimpleDemo alloc] init];
+    
+    // Nav
     _navController = [[UINavigationController alloc] initWithRootViewController:_mainVController];
-
+    _navController.navigationBar.barTintColor = [UIColor mainAppColor];
+    _navController.navigationBar.translucent = NO;
+    [_navController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
+   
     self.window.rootViewController = _navController;
     [self.window makeKeyAndVisible];
     return YES;

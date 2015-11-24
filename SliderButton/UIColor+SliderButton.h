@@ -1,5 +1,5 @@
 //
-//  SliderButton.h
+//  UIColor.h
 //  SliderButton
 //
 //  Created by Annalia Sunderland on 11/23/15.
@@ -8,9 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SliderButton : UIControl
+@interface UIColor (SliderButton)
 
++(UIColor *) mainAppColor;
 
--(void) resetSliderButton;
--(void) resetSliderButtonAfter:(float)delay;
 @end
