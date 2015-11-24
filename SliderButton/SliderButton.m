@@ -7,6 +7,7 @@
 //
 
 #import "SliderButton.h"
+#import "UIColor+SliderButton.h"
 
 @implementation SliderButton {
     UIImageView *_sliderTag;
@@ -36,7 +37,7 @@
         _sliderEndZone = CGRectMake(0, 0, _fWidth, _sHeight*1.5);
         
         _tail = [[UIView alloc] initWithFrame: CGRectMake(0, _fHeight, _fWidth, 0)];
-        _tail.backgroundColor = [UIColor colorWithRed:42.0/255.0 green:80.0/255.0 blue:163.0/255.0 alpha:1.0];
+        _tail.backgroundColor = [UIColor mainAppColor];
         
         
         [self addSubview:_sliderTag];
@@ -91,5 +92,11 @@
     }
 }
 
+-(void)resetSliderButton {
+    
+    _sliderTag.frame = _sliderStartFrame;
+    _sliderTag.hidden = NO;
+    _tail.frame = CGRectMake(0, _fHeight, _fWidth, 0);
+}
 
 @end

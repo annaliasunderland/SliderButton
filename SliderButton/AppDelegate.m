@@ -9,6 +9,7 @@
 
 #import "AppDelegate.h"
 #import "ViewController.h"
+#import "UIColor+SliderButton.h"
 
 @interface AppDelegate ()
 
@@ -22,10 +23,18 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    
+    // Main VC
     _mainVController = [[ViewController alloc] init];
+    _mainVController.title = @"Jeff Huang";
     _mainVController.view.backgroundColor = [UIColor whiteColor];
+    
+    // Nav
     _navController = [[UINavigationController alloc] initWithRootViewController:_mainVController];
-
+    _navController.navigationBar.barTintColor = [UIColor mainAppColor];
+    _navController.navigationBar.translucent = NO;
+    [_navController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
+   
     self.window.rootViewController = _navController;
     [self.window makeKeyAndVisible];
     return YES;
