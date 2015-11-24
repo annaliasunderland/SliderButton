@@ -33,7 +33,7 @@
                                       _sHeight);
         
         _tail = [[UIView alloc] initWithFrame: CGRectMake(0, _fHeight, _fWidth, 0)];
-        _tail.backgroundColor = [UIColor colorWithRed:0.0/255.0 green:70.0/255.0 blue:106.0/255.0 alpha:1.0];
+        _tail.backgroundColor = [UIColor colorWithRed:42.0/255.0 green:80.0/255.0 blue:163.0/255.0 alpha:1.0];
         // TODO: make color actually match
         [self addSubview:_sliderTag];
         [self addSubview:_tail];
