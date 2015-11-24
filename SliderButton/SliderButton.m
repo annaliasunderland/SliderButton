@@ -14,6 +14,8 @@
     UIView *_tail;
     
     float _sHeight, _sWidth, _fHeight, _fWidth;
+    
+    CGRect _sliderStartFrame, _sliderEndZone;
 }
 
 - (id)initWithFrame:(CGRect)frame {
@@ -27,14 +29,17 @@
         _fHeight = frame.size.height;
         _fWidth = frame.size.width;
         
-        _sliderTag.frame = CGRectMake(_fWidth/2 - _sWidth/2,
-                                      _fHeight - _sHeight,
-                                      _sWidth,
-                                      _sHeight);
+        _sliderStartFrame = CGRectMake(_fWidth/2 - _sWidth/2,
+                                       _fHeight - _sHeight,
+                                       _sWidth,
+                                       _sHeight);
+        _sliderTag.frame = _sliderStartFrame;
+        _sliderEndZone = CGRectMake(0, 0, _fWidth, _sHeight*1.5);
         
         _tail = [[UIView alloc] initWithFrame: CGRectMake(0, _fHeight, _fWidth, 0)];
         _tail.backgroundColor = [UIColor colorWithRed:42.0/255.0 green:80.0/255.0 blue:163.0/255.0 alpha:1.0];
-        // TODO: make color actually match
+        
+        
         [self addSubview:_sliderTag];
         [self addSubview:_tail];
         
@@ -77,7 +82,14 @@
 }
 
 -(void)endTrackingWithTouch:(UITouch *)touch withEvent:(UIEvent *)event {
-    // TODO
+    if (CGRectContainsRect(_sliderEndZone, _sliderTag.frame)) {
+        _tail.frame = CGRectMake(0,0,_fWidth,_fHeight);
+        _sliderTag.hidden = YES;
+        NSLog(@"COMPLETE.");
+    } else {
+        _tail.frame = CGRectMake(0,_fHeight,_fWidth,0);
+        _sliderTag.frame = _sliderStartFrame;
+    }
 }
 
 @end
