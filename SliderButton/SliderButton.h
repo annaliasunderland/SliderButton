@@ -12,7 +12,7 @@
 
 typedef enum {
     SliderButtonDirectionUp,
-    SliderButtonDirectionDown,
+//    SliderButtonDirectionDown,
     SliderButtonDirectionLeft,
     SliderButtonDirectionRight
 } SliderButtonDirection;
