@@ -16,35 +16,100 @@
     float _sHeight, _sWidth, _fHeight, _fWidth;
     
     CGRect _sliderStartFrame, _sliderEndZone;
+    CGRect _tailStartFrame, _tailEndFrame;
 }
 
-- (id)initWithFrame:(CGRect)frame {
+-(id)initWithFrame:(CGRect)frame
+    slideDirection:(SliderButtonDirection)sliderButtonDirection {
     self = [super initWithFrame:frame];
     if (self) {
-        UIImage *sliderTagImage = [UIImage imageNamed:@"New_Half.png"];
-        _sliderTag = [[UIImageView alloc] initWithImage:sliderTagImage];
-        
-        _sHeight = sliderTagImage.size.height/4;
-        _sWidth = sliderTagImage.size.width/4;
-        _fHeight = frame.size.height;
-        _fWidth = frame.size.width;
-        
-        _sliderStartFrame = CGRectMake(_fWidth/2 - _sWidth/2,
-                                       _fHeight - _sHeight,
-                                       _sWidth,
-                                       _sHeight);
-        _sliderTag.frame = _sliderStartFrame;
-        _sliderEndZone = CGRectMake(0, 0, _fWidth, _sHeight*1.5);
-        
-        _tail = [[UIView alloc] initWithFrame: CGRectMake(0, _fHeight, _fWidth, 0)];
-        _tail.backgroundColor = [UIColor mainAppColor];
-        
-        
-        [self addSubview:_sliderTag];
-        [self addSubview:_tail];
+        _direction = sliderButtonDirection;
+        [self _initialize:frame];
         
     }
     return self;
+}
+
+-(id) initWithFrame:(CGRect)frame {
+    self = [super initWithFrame:frame];
+    if (self) {
+        _direction = SliderButtonDirectionUp;
+        [self _initialize:frame];
+    }
+    return self;
+}
+
+-(void) _initialize:(CGRect) frame {
+    UIImage *sliderTagImage = [UIImage imageNamed:@"New_Half.png"];
+    _sliderTag = [[UIImageView alloc] initWithImage:sliderTagImage];
+    
+    _sHeight = sliderTagImage.size.height/4;
+    _sWidth = sliderTagImage.size.width/4;
+    _fHeight = frame.size.height;
+    _fWidth = frame.size.width;
+    
+    [self _setFrames];
+    _sliderTag.frame = _sliderStartFrame;
+    _tail = [[UIView alloc] initWithFrame:_tailStartFrame];
+    
+    _tail.backgroundColor = [UIColor mainAppColor];
+    
+    
+    [self addSubview:_sliderTag];
+    [self addSubview:_tail];
+}
+
+/* Sets the end and start zones/frames using slide direction. */
+- (void) _setFrames {
+    switch (_direction) {
+        case SliderButtonDirectionUp: {
+            _sliderStartFrame = CGRectMake(_fWidth/2 - _sWidth/2,
+                                           _fHeight - _sHeight,
+                                           _sWidth,
+                                           _sHeight);
+            _sliderEndZone = CGRectMake(0, 0, _fWidth, _sHeight*1.5);
+            _tailStartFrame = CGRectMake(0, _fHeight, _fWidth, 0);
+            _tailEndFrame = CGRectMake(0,0,_fWidth,_fHeight);
+            return;
+        };
+        case SliderButtonDirectionDown: {
+            _sliderStartFrame = CGRectMake(_fWidth/2 - _sWidth/2,
+                                           _sHeight,
+                                           _sWidth,
+                                           _sHeight);
+            _sliderEndZone = CGRectMake(0,_fHeight - _sHeight*1.5, _fWidth,_sHeight*1.5);
+            _tailStartFrame = CGRectMake(0,0,_fWidth,_fHeight);
+            _tailEndFrame = CGRectMake(0, _fHeight, _fWidth, 0);
+            return;
+        };
+        case SliderButtonDirectionLeft: {
+//            _sliderStartFrame = CGRectMake(0, 0, _sHeight*1.5, _fHeight);
+//            _sliderEndZone = CGRectMake(_fWidth/2 - _sWidth/2,
+//                                        _fHeight - _sHeight,
+//                                        _sWidth,
+//                                        _sHeight);
+//            _tailStartFrame = CGRectMake(0,0,_fWidth,_fHeight);
+//            _tailEndFrame = CGRectMake(0, _fHeight, _fWidth, 0);
+            _sliderStartFrame = CGRectMake(_fWidth/2 - _sWidth/2,
+                                           _fHeight - _sHeight,
+                                           _sWidth,
+                                           _sHeight);
+            _sliderEndZone = CGRectMake(0, 0, _fWidth, _sHeight*1.5);
+            _tailStartFrame = CGRectMake(0, _fHeight, _fWidth, 0);
+            _tailEndFrame = CGRectMake(0,0,_fWidth,_fHeight);
+            return;
+        }
+        case SliderButtonDirectionRight: {
+            _sliderStartFrame = CGRectMake(_fWidth/2 - _sWidth/2,
+                                           _fHeight - _sHeight,
+                                           _sWidth,
+                                           _sHeight);
+            _sliderEndZone = CGRectMake(0, 0, _fWidth, _sHeight*1.5);
+            _tailStartFrame = CGRectMake(0, _fHeight, _fWidth, 0);
+            _tailEndFrame = CGRectMake(0,0,_fWidth,_fHeight);
+            return;
+        }
+    }
 }
 
 # pragma mark - Update Views

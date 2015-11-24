@@ -10,6 +10,17 @@
 
 @interface SliderButton : UIControl
 
+typedef enum {
+    SliderButtonDirectionUp,
+    SliderButtonDirectionDown,
+    SliderButtonDirectionLeft,
+    SliderButtonDirectionRight
+} SliderButtonDirection;
+
+@property (nonatomic, readonly) SliderButtonDirection direction;
+
+-(id)initWithFrame:(CGRect)frame
+    slideDirection:(SliderButtonDirection)sliderButtonDirection;
 
 -(void) resetSliderButton;
 -(void) resetSliderButtonAfter:(float)delay;

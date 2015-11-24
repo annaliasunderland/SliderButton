@@ -33,7 +33,13 @@
     _directionsArray = [NSArray arrayWithObjects:@"Swipe up. I dare you.", @"DO THAT AGAIN.", @"IM SRY, DO U WANT SOMETHING?!?", @"omg.", @"Fine. I can do this forever.", nil];
     _counter = 0;
     
-    
+    // Welcome to the Swipe Widget Kit
+    // Swipe right to continue.
+    // This is for creating an alternative to the button on iPhones.
+    // ...
+    // (make button on right pop up) Swiping left takes you back
+    // Try it.
+    //
     
     float FRAME_WIDTH = self.view.frame.size.width;
     
@@ -64,7 +70,7 @@
 // !!! HERE IS WHERE THE SLIDER BUTTON IS ADDED.
 - (void)_addSliderButton:(CGRect)frame{
     
-    _sliderButton1 = [[SliderButton alloc] initWithFrame:frame];
+    _sliderButton1 = [[SliderButton alloc] initWithFrame:frame slideDirection:SliderButtonDirectionUp];
     [_sliderButton1 addTarget:self action:@selector(coolAction:) forControlEvents:UIControlEventValueChanged];
     [_simpleFrame addSubview:_sliderButton1];
 }
