@@ -87,7 +87,7 @@
 // !!! HERE IS WHERE THE SLIDER BUTTON IS ADDED.
 - (void)_addSliderButton:(CGRect)frame{
     
-    _sliderButton1 = [SliderButton sliderWithDirection:SliderButtonDirectionLeft];
+    _sliderButton1 = [SliderButton sliderWithDirection:SliderButtonDirectionRight Frame:frame];
     [_sliderButton1 setFrame:frame];
     
 //    _sliderButton1 = [[SliderButton alloc] initWithFrame:frame slideDirection:SliderButtonDirectionRight];

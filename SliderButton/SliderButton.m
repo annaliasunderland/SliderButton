@@ -10,13 +10,11 @@
 #import "UIColor+SliderButton.h"
 
 @implementation SliderButton {
-    
-    
-    
-    UIImageView *_sliderTag;
+
+    UIImageView *_sliderHead;
     UIView *_tail;
     
-    float _sHeight, _sWidth, _fHeight, _fWidth;
+    float _headHei, _headWid, _parentHei, _parentWid;
     
     CGRect _startFrameSlider, _endZoneSlider;
     CGRect _startFrameTail, _endFrameTail;
@@ -29,18 +27,38 @@ NSString *const SLIDER_IMG_RIGHT   = @"SwipeRight.png";
 # pragma mark - Init
 
 // Public Factory Method
-+(instancetype)sliderWithDirection:(SliderButtonDirection)sliderButtonDirection {
-    return [[self alloc] _initWithSliderDirection: sliderButtonDirection];
++(instancetype)sliderWithDirection:(SliderButtonDirection)sliderButtonDirection
+                             Frame:(CGRect)frame {
+    return [[self alloc] _initWithSliderDirection: sliderButtonDirection
+                                            Frame: frame];
 }
 
 # pragma mark - Init Helper Methods
 
 // Private initializer method, for factory method to use
--(id)_initWithSliderDirection:(SliderButtonDirection)sliderButtonDirection {
-    self = [super init];
+-(id)_initWithSliderDirection:(SliderButtonDirection)sliderButtonDirection
+                        Frame:(CGRect)frame {
+    self = [super initWithFrame: frame];
     if (self) {
         _direction = sliderButtonDirection;
-        _sliderTag = [self _imageViewForDirection:_direction];
+        
+        UIImage *sliderHeadImage = [self _imageForDirection:_direction];
+        
+        _sliderHead = [[UIImageView alloc] initWithImage:sliderHeadImage];
+        
+        _headHei    = sliderHeadImage.size.height / 4;
+        _headWid    = sliderHeadImage.size.width / 4;
+        _parentHei  = frame.size.height;
+        _parentWid  = frame.size.width;
+        
+        [self _setFrames];
+        [_sliderHead setFrame:_startFrameSlider];
+        
+        _tail = [[UIView alloc] initWithFrame:_startFrameTail];
+        _tail.backgroundColor = [UIColor mainAppColor];
+        
+        [self addSubview:_sliderHead];
+        [self addSubview:_tail];
         NSLog(@"HI");
     }
     return self;
@@ -61,168 +79,156 @@ NSString *const SLIDER_IMG_RIGHT   = @"SwipeRight.png";
     }
 }
 
-// Private method, for returning Slider Button Image, given direction
--(UIImageView *) _imageViewForDirection:(SliderButtonDirection) sliderButtonDirection {
-    UIImage *sliderTagImage;
-    switch(sliderButtonDirection) {
-        case SliderButtonDirectionUp: {
-            sliderTagImage = [UIImage imageNamed:SLIDER_IMG_UP];
-            break;
-        };
-        case SliderButtonDirectionLeft: {
-            sliderTagImage = [UIImage imageNamed:SLIDER_IMG_LEFT];
-            break;
-        };
-        case SliderButtonDirectionRight: {
-            sliderTagImage = [UIImage imageNamed:SLIDER_IMG_RIGHT];
-            break;
-        }
-    }
-    return [[UIImageView alloc] initWithImage:sliderTagImage];
-}
-
-
-//// initWithFrame with specified slide direction.
-//-(id)initWithFrame:(CGRect)frame
-//    slideDirection:(SliderButtonDirection)sliderButtonDirection {
-//    self = [super initWithFrame:frame];
-//    if (self) {
-//        _direction = sliderButtonDirection;
-//        [self _initialize:frame];
-//        
-//    }
-//    return self;
-//}
-
-//// initWithFrame without slide direction specified. Default is up.
-//-(id) initWithFrame:(CGRect)frame {
-//    self = [super initWithFrame:frame];
-//    if (self) {
-//        _direction = SliderButtonDirectionUp;
-//        [self _initialize:frame];
-//    }
-//    return self;
-//}
-
-
--(void) _initialize:(CGRect) frame {
-    UIImage *sliderTagImage = [self _imageForDirection:_direction];
-    _sliderTag = [[UIImageView alloc] initWithImage:sliderTagImage];
-    
-    _sHeight = sliderTagImage.size.height/4;
-    _sWidth = sliderTagImage.size.width/4;
-    _fHeight = frame.size.height;
-    _fWidth = frame.size.width;
-    
-    [self _setFrames];
-    _sliderTag.frame = _startFrameSlider;
-    _tail = [[UIView alloc] initWithFrame:_startFrameTail];
-    
-    _tail.backgroundColor = [UIColor mainAppColor];
-    
-    
-    [self addSubview:_sliderTag];
-    [self addSubview:_tail];
-}
-
-
-
-/* Sets the end and start zones/frames using slide direction. */
+// Sets the end and start zones/frames using slide direction.
 - (void) _setFrames {
+    //head
+    float headStartX,      headEndX;
+    float headStartY,      headEndY;
+    float headStartWid,    headEndWid;
+    float headStartHei,    headEndHei;
+    
+    //tail
+    float tailStartX,      tailEndX;
+    float tailStartY,      tailEndY;
+    float tailStartWid,    tailEndWid;
+    float tailStartHei,    tailEndHei;
+    
+    headStartWid = _headWid;    // head always has frame size of image
+    headStartHei = _headHei;
+    
+    tailEndX = 0;               // tail always ends being entire parent frame
+    tailEndY = 0;
+    tailEndWid = _parentWid;
+    tailEndHei = _parentHei;
+    
     switch (_direction) {
         case SliderButtonDirectionUp: {
-            _startFrameSlider = CGRectMake(_fWidth/2 - _sWidth/2,
-                                           _fHeight - _sHeight,
-                                           _sWidth,
-                                           _sHeight);
-            _endZoneSlider = CGRectMake(0, 0, _fWidth, _sHeight*1.5);
-            _startFrameTail = CGRectMake(0, _fHeight, _fWidth, 0);
-            _endFrameTail = CGRectMake(0,0,_fWidth,_fHeight);
-            return;
+            headStartX = _parentWid/2 - _headWid/2;
+            headStartY = _parentHei - _headHei;
+            
+            headEndX = 0;
+            headEndY = 0;
+            headEndWid = _parentWid;
+            headEndHei  = _headHei*1.5;
+            
+            tailStartX = 0;
+            tailStartY = _parentHei;
+            tailStartWid = _parentWid;
+            tailStartHei = 0;
+
+            break;
         };
             
         case SliderButtonDirectionLeft: {
-            _startFrameSlider = CGRectMake(_fWidth - _sWidth,
-                                           (_fHeight/2) - (_sHeight/2),
-                                           _sWidth,
-                                           _sHeight);
-            _endZoneSlider = CGRectMake(0, 0, _fWidth/2, _fHeight);
-            _startFrameTail = CGRectMake(0, 0, 0, _fHeight);// TODO
-            _endFrameTail = CGRectMake(0,0,_fWidth,_fHeight);// TODO
-            return;
+            headStartX = _parentWid - _headWid;
+            headStartY = (_parentHei/2) - (_parentHei/2);
+            
+            headEndX = 0;
+            headEndY = 0;
+            headEndWid = _parentWid/2;
+            headEndHei  = _parentHei;
+            
+            tailStartX = 0;
+            tailStartY = 0;
+            tailStartWid = 0;
+            tailStartHei = _parentHei;
+
+            break;
         }
         case SliderButtonDirectionRight: {
-            _startFrameSlider = CGRectMake(0,
-                                           _fHeight/2 - _sHeight/2,
-                                           _sWidth,
-                                           _sHeight);
-            _endZoneSlider = CGRectMake(_fWidth/2, 0, _fWidth/2, _fHeight);
-            _startFrameTail = CGRectMake(0, 0, 0, _fHeight);// TODO
-            _endFrameTail = CGRectMake(0,0,_fWidth,_fHeight);// TODO
-            return;
+            headStartX = 0;
+            headStartY = (_parentHei/2) - (_headHei/2);
+            
+            headEndX = _parentWid/2;
+            headEndY = 0;
+            headEndWid = _parentWid/2;
+            headEndHei  = _parentHei;
+            
+            tailStartX = 0;
+            tailStartY = 0;
+            tailStartWid = 0;
+            tailStartHei = _parentHei;
+            
+            break;
         }
     }
+    _startFrameSlider   = CGRectMake(headStartX,    headStartY,     headStartWid,   headStartHei);
+    _endZoneSlider      = CGRectMake(headEndX,      headEndY,       headEndWid,     headEndHei);
+    _startFrameTail     = CGRectMake(tailStartX,    tailStartY,     tailStartWid,   tailStartHei);
+    _endFrameTail       = CGRectMake(tailEndX,      tailEndY,       tailEndWid,     tailEndHei);
 }
 
 # pragma mark - Update Views
 
+// Updates the Slider Button to the new Origin; updates Tail and SliderHead Frames
 -(void) _moveSliderTo:(CGPoint) newOrigin {
+    
+    float newHeadX, newHeadY;
+    float newTailX, newTailY, newTailWid, newTailHei;
+    
     switch (_direction) {
-        case SliderButtonDirectionUp: {
-            float newY = newOrigin.y - self.frame.origin.y;
-            newY = MIN(_fHeight - _sHeight, newY);
-            newY = MAX(0, newY);
             
-            [_sliderTag setFrame: CGRectMake(_sliderTag.frame.origin.x, newY, _sWidth, _sHeight)];
-            
-            [_tail setFrame: CGRectMake(0, newY + _sHeight, _fWidth, _fHeight - (newY + _sHeight))];
-            return;
+        case SliderButtonDirectionUp: { // same X, only move on vertical axis
+            newHeadY    = MAX(0, MIN(_parentHei - _headHei,
+                                     newOrigin.y - self.frame.origin.y));
+            newHeadX    = _sliderHead.frame.origin.x;
+            newTailX    = 0;
+            newTailY    = newHeadY + _headHei;
+            newTailWid  = _parentWid;
+            newTailHei  = _parentHei - (newHeadY + _headHei);
+            break;
         };
+            
         case SliderButtonDirectionLeft: {
-            float newX = newOrigin.x - self.frame.origin.x;
-            newX = MIN(_fWidth - _sWidth, newX);
-            newX = MAX(0, newX);
-            
-            [_sliderTag setFrame: CGRectMake(newX, _sliderTag.frame.origin.y, _sWidth, _sHeight)];
-            
-            [_tail setFrame: CGRectMake(newX + _sWidth, 0, _fWidth - (newX + _sWidth), _fHeight)];
-            return;
+            newHeadX    = MAX(0, MIN(_parentWid - _headWid,
+                                     newOrigin.x - self.frame.origin.x));
+            newHeadY    = _sliderHead.frame.origin.y;
+            newTailX    = newHeadX + _headWid;
+            newTailY    = 0;
+            newTailWid  = _parentWid - (newHeadX + _headWid);
+            newTailHei  = _parentHei;
+            break;
         };
+            
         case SliderButtonDirectionRight: {
-            float newX = newOrigin.x - self.frame.origin.x;
-            newX = MIN(_fWidth - _sWidth, newX);
-            newX = MAX(0, newX);
-            
-            [_sliderTag setFrame: CGRectMake(newX, _sliderTag.frame.origin.y, _sWidth, _sHeight)];
-            
-            [_tail setFrame: CGRectMake(0, 0, newX, _fHeight)];
-            return;
+            newHeadX    = MAX(0, MIN(_parentWid - _headWid,
+                                     newOrigin.x - self.frame.origin.x));
+            newHeadY    = _sliderHead.frame.origin.y;
+            newTailX    = 0;
+            newTailY    = 0;
+            newTailWid  = newHeadX;
+            newTailHei  = _parentHei;
+            break;
         };
     }
-    
+    // Set the Frames of the Head and Tail to new values
+    [_sliderHead setFrame:CGRectMake(newHeadX, newHeadY, _headWid, _headHei)];
+    [_tail setFrame:CGRectMake(newTailX, newTailY, newTailWid, newTailHei)];
 }
 
+// Resets the Slider Button to the start frame
 -(void)_resetToStart {
     [CATransaction begin];
     [CATransaction setDisableActions:YES];
-    _sliderTag.hidden = NO;
+    _sliderHead.hidden = NO;
     _tail.frame = _startFrameTail;
-    _sliderTag.frame = _startFrameSlider;
+    _sliderHead.frame = _startFrameSlider;
     [CATransaction commit];
 }
 
+// Snaps the Slider Button to the end frame
 -(void)_snapToComplete {
     [CATransaction begin];
     [CATransaction setDisableActions:YES];
     _tail.frame = _endFrameTail;
-    _sliderTag.hidden = YES;
+    _sliderHead.hidden = YES;
     [CATransaction commit];
 }
 
 # pragma mark - UIControl Methods
 -(BOOL)beginTrackingWithTouch:(UITouch *)touch withEvent:(UIEvent *)event {
     CGPoint recentTouchPoint = [touch locationInView:self];
-    if (CGRectContainsPoint(_sliderTag.frame, recentTouchPoint)) {
+    if (CGRectContainsPoint(_sliderHead.frame, recentTouchPoint)) {
         return YES;
     }
     return NO;
@@ -240,7 +246,7 @@ NSString *const SLIDER_IMG_RIGHT   = @"SwipeRight.png";
 }
 
 -(void)endTrackingWithTouch:(UITouch *)touch withEvent:(UIEvent *)event {
-    if (CGRectContainsRect(_endZoneSlider, _sliderTag.frame)) {
+    if (CGRectContainsRect(_endZoneSlider, _sliderHead.frame)) {
         [self _snapToComplete];
         [self sendActionsForControlEvents:UIControlEventValueChanged];
     } else {
@@ -250,11 +256,12 @@ NSString *const SLIDER_IMG_RIGHT   = @"SwipeRight.png";
 
 
 # pragma mark - reset methods
-
+// snaps immediately
 -(void)resetSliderButton {
     [self _resetToStart];
 }
 
+// snaps after delay
 -(void)resetSliderButtonAfter:(float)delay {
     [self performSelector:@selector(_resetToStart) withObject:nil afterDelay:delay];
 }
