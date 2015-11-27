@@ -151,6 +151,22 @@
     
 }
 
+-(void)_resetToStart {
+    [CATransaction begin];
+    [CATransaction setDisableActions:YES];
+    _sliderTag.hidden = NO;
+    _tail.frame = _startFrameTail;
+    _sliderTag.frame = _startFrameSlider;
+    [CATransaction commit];
+}
+
+-(void)_snapToComplete {
+    [CATransaction begin];
+    [CATransaction setDisableActions:YES];
+    _tail.frame = _endFrameTail;
+    _sliderTag.hidden = YES;
+    [CATransaction commit];
+}
 
 # pragma mark - UIControl Methods
 -(BOOL)beginTrackingWithTouch:(UITouch *)touch withEvent:(UIEvent *)event {
@@ -182,22 +198,7 @@
 }
 
 
--(void)_resetToStart {
-    [CATransaction begin];
-    [CATransaction setDisableActions:YES];
-    _sliderTag.hidden = NO;
-    _tail.frame = _startFrameTail;
-    _sliderTag.frame = _startFrameSlider;
-    [CATransaction commit];
-}
-
--(void)_snapToComplete {
-    [CATransaction begin];
-    [CATransaction setDisableActions:YES];
-    _tail.frame = _endFrameTail;
-    _sliderTag.hidden = YES;
-    [CATransaction commit];
-}
+# pragma mark - reset methods
 
 -(void)resetSliderButton {
     [self _resetToStart];
