@@ -9,6 +9,7 @@
 #import "SBSimpleDemo.h"
 #import "SliderButton.h"
 #import "UIColor+SliderButton.h"
+#import "SBSimpleDemoMsgBoxView.h"
 
 @interface SBSimpleDemo ()
 
@@ -34,30 +35,31 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor lightGrayColor];
     
-    _directionsArray = [NSArray arrayWithObjects:@"swipe right to continue", @"This is for creating an alternative to the buttons on iPhones", @"...", @"Swiping left takes you back. Try it!", @"In the following example, the swipe widget will take over send function in a messaging app; Swipe to continue", nil];
-    _counter = 0;
+//    _directionsArray = [NSArray arrayWithObjects:@"swipe right to continue", @"This is for creating an alternative to the buttons on iPhones", @"...", @"Swiping left takes you back. Try it!", @"In the following example, the swipe widget will take over send function in a messaging app; Swipe to continue", nil];
+//    _counter = 0;
     
     float FRAME_WIDTH = self.view.frame.size.width;
-    _swapIndex = 3;
-    _swapOccurred = NO;
-    
-    UILabel *welcome = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, FRAME_WIDTH, 100)];
-    welcome.text = @"Welcome to the Swipe Kit Widget";
-    welcome.textAlignment = NSTextAlignmentCenter;
-    [self.view addSubview:welcome];
-    
-    _simpleFrame = [[UIView alloc] initWithFrame:CGRectMake(0, 100, FRAME_WIDTH, 100)];
-    _simpleFrame.backgroundColor = [UIColor whiteColor];
-    
-    CGRect reusableFrame = CGRectMake(0, 0, FRAME_WIDTH, 100);
-    _directions = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, FRAME_WIDTH, 100)];
-    _directions.textAlignment = NSTextAlignmentCenter;
-    _directions.font = [UIFont systemFontOfSize:10];
-    _directions.text = _directionsArray[0];
-    [_simpleFrame addSubview:_directions];
-    
-    [self _addSliderButton:reusableFrame]; // SLIDER BUTTON ADDED.
-    [self.view addSubview:_simpleFrame];
+//    _swapIndex = 3;
+//    _swapOccurred = NO;
+//    
+//    UILabel *welcome = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, FRAME_WIDTH, 100)];
+//    welcome.text = @"Welcome to the Swipe Kit Widget";
+//    welcome.textAlignment = NSTextAlignmentCenter;
+//    [self.view addSubview:welcome];
+//    
+//    _simpleFrame = [[UIView alloc] initWithFrame:CGRectMake(0, 100, FRAME_WIDTH, 100)];
+//    _simpleFrame.backgroundColor = [UIColor whiteColor];
+//    
+//    CGRect reusableFrame = CGRectMake(0, 0, FRAME_WIDTH, 100);
+//    _directions = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, FRAME_WIDTH, 100)];
+//    _directions.textAlignment = NSTextAlignmentCenter;
+//    _directions.font = [UIFont systemFontOfSize:10];
+//    _directions.text = _directionsArray[0];
+//    [_simpleFrame addSubview:_directions];
+//    
+//    [self _addSliderButton:reusableFrame]; // SLIDER BUTTON ADDED.
+//    [self.view addSubview:_simpleFrame];
+    [self.view addSubview:[[SBSimpleDemoMsgBoxView alloc] initWithFrame:CGRectMake(0, 100, FRAME_WIDTH, 100)]];
 }
 
 
@@ -88,9 +90,6 @@
 - (void)_addSliderButton:(CGRect)frame{
     
     _sliderButton1 = [SliderButton sliderWithDirection:SliderButtonDirectionRight Frame:frame];
-    [_sliderButton1 setFrame:frame];
-    
-//    _sliderButton1 = [[SliderButton alloc] initWithFrame:frame slideDirection:SliderButtonDirectionRight];
     [_sliderButton1 addTarget:self action:@selector(coolAction:) forControlEvents:UIControlEventValueChanged];
     [_simpleFrame addSubview:_sliderButton1];
     

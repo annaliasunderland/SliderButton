@@ -158,7 +158,7 @@ NSString *const SLIDER_IMG_RIGHT   = @"SwipeRight.png";
     _endFrameTail       = CGRectMake(tailEndX,      tailEndY,       tailEndWid,     tailEndHei);
 }
 
-# pragma mark - Update Views
+# pragma mark - Update Views (Private Methods)
 
 // Updates the Slider Button to the new Origin; updates Tail and SliderHead Frames
 -(void) _moveSliderTo:(CGPoint) newOrigin {
@@ -246,7 +246,7 @@ NSString *const SLIDER_IMG_RIGHT   = @"SwipeRight.png";
 
 
 # pragma mark - reset methods
-// snaps immediately
+// snaps to start immediately
 -(void)resetSliderButton {
     [CATransaction begin];
     [CATransaction setDisableActions:YES];
@@ -256,7 +256,7 @@ NSString *const SLIDER_IMG_RIGHT   = @"SwipeRight.png";
     [CATransaction commit];
 }
 
-// snaps after delay
+// snaps to start after delay
 -(void)resetSliderButtonAfter:(float)delay {
     [self performSelector:@selector(resetSliderButton) withObject:nil afterDelay:delay];
 }
