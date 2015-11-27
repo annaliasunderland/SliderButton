@@ -10,6 +10,9 @@
 #import "UIColor+SliderButton.h"
 
 @implementation SliderButton {
+    
+    
+    
     UIImageView *_sliderTag;
     UIView *_tail;
     
@@ -19,29 +22,89 @@
     CGRect _startFrameTail, _endFrameTail;
 }
 
-// initWithFrame with specified slide direction.
--(id)initWithFrame:(CGRect)frame
-    slideDirection:(SliderButtonDirection)sliderButtonDirection {
-    self = [super initWithFrame:frame];
-    if (self) {
-        _direction = sliderButtonDirection;
-        [self _initialize:frame];
-        
-    }
-    return self;
-}
+NSString *const SLIDER_IMG_UP      = @"New_Half.png";
+NSString *const SLIDER_IMG_LEFT    = @"SwipeLeft.png";
+NSString *const SLIDER_IMG_RIGHT   = @"SwipeRight.png";
 
-// initWithFrame without slide direction specified. Default is up.
--(id) initWithFrame:(CGRect)frame {
-    self = [super initWithFrame:frame];
-    if (self) {
-        _direction = SliderButtonDirectionUp;
-        [self _initialize:frame];
-    }
-    return self;
+# pragma mark - Init
+
+// Public Factory Method
++(instancetype)sliderWithDirection:(SliderButtonDirection)sliderButtonDirection {
+    return [[self alloc] _initWithSliderDirection: sliderButtonDirection];
 }
 
 # pragma mark - Init Helper Methods
+
+// Private initializer method, for factory method to use
+-(id)_initWithSliderDirection:(SliderButtonDirection)sliderButtonDirection {
+    self = [super init];
+    if (self) {
+        _direction = sliderButtonDirection;
+        _sliderTag = [self _imageViewForDirection:_direction];
+        NSLog(@"HI");
+    }
+    return self;
+}
+
+// Private method, for returning Slider Button Image, given direction
+- (UIImage *) _imageForDirection:(SliderButtonDirection) sliderButtonDirection {
+    switch(sliderButtonDirection) {
+        case SliderButtonDirectionUp: {
+            return [UIImage imageNamed:SLIDER_IMG_UP];
+        };
+        case SliderButtonDirectionLeft: {
+            return [UIImage imageNamed:SLIDER_IMG_LEFT];
+        };
+        case SliderButtonDirectionRight: {
+            return [UIImage imageNamed:SLIDER_IMG_RIGHT];
+        }
+    }
+}
+
+// Private method, for returning Slider Button Image, given direction
+-(UIImageView *) _imageViewForDirection:(SliderButtonDirection) sliderButtonDirection {
+    UIImage *sliderTagImage;
+    switch(sliderButtonDirection) {
+        case SliderButtonDirectionUp: {
+            sliderTagImage = [UIImage imageNamed:SLIDER_IMG_UP];
+            break;
+        };
+        case SliderButtonDirectionLeft: {
+            sliderTagImage = [UIImage imageNamed:SLIDER_IMG_LEFT];
+            break;
+        };
+        case SliderButtonDirectionRight: {
+            sliderTagImage = [UIImage imageNamed:SLIDER_IMG_RIGHT];
+            break;
+        }
+    }
+    return [[UIImageView alloc] initWithImage:sliderTagImage];
+}
+
+
+//// initWithFrame with specified slide direction.
+//-(id)initWithFrame:(CGRect)frame
+//    slideDirection:(SliderButtonDirection)sliderButtonDirection {
+//    self = [super initWithFrame:frame];
+//    if (self) {
+//        _direction = sliderButtonDirection;
+//        [self _initialize:frame];
+//        
+//    }
+//    return self;
+//}
+
+//// initWithFrame without slide direction specified. Default is up.
+//-(id) initWithFrame:(CGRect)frame {
+//    self = [super initWithFrame:frame];
+//    if (self) {
+//        _direction = SliderButtonDirectionUp;
+//        [self _initialize:frame];
+//    }
+//    return self;
+//}
+
+
 -(void) _initialize:(CGRect) frame {
     UIImage *sliderTagImage = [self _imageForDirection:_direction];
     _sliderTag = [[UIImageView alloc] initWithImage:sliderTagImage];
@@ -62,19 +125,7 @@
     [self addSubview:_tail];
 }
 
-- (UIImage *) _imageForDirection:(SliderButtonDirection) sbdir {
-    switch(sbdir) {
-        case SliderButtonDirectionUp: {
-            return [UIImage imageNamed:@"New_Half.png"];
-        };
-        case SliderButtonDirectionLeft: {
-            return [UIImage imageNamed:@"SwipeLeft.png"];
-        };
-        case SliderButtonDirectionRight: {
-            return [UIImage imageNamed:@"SwipeRight.png"];
-        }
-    }
-}
+
 
 /* Sets the end and start zones/frames using slide direction. */
 - (void) _setFrames {
@@ -122,9 +173,9 @@
             newY = MIN(_fHeight - _sHeight, newY);
             newY = MAX(0, newY);
             
-            _sliderTag.frame = CGRectMake(_sliderTag.frame.origin.x, newY, _sWidth, _sHeight);
+            [_sliderTag setFrame: CGRectMake(_sliderTag.frame.origin.x, newY, _sWidth, _sHeight)];
             
-            _tail.frame = CGRectMake(0, newY + _sHeight, _fWidth, _fHeight - (newY + _sHeight));
+            [_tail setFrame: CGRectMake(0, newY + _sHeight, _fWidth, _fHeight - (newY + _sHeight))];
             return;
         };
         case SliderButtonDirectionLeft: {
@@ -132,9 +183,9 @@
             newX = MIN(_fWidth - _sWidth, newX);
             newX = MAX(0, newX);
             
-            _sliderTag.frame = CGRectMake(newX, _sliderTag.frame.origin.y, _sWidth, _sHeight);
+            [_sliderTag setFrame: CGRectMake(newX, _sliderTag.frame.origin.y, _sWidth, _sHeight)];
             
-            _tail.frame = CGRectMake(newX + _sWidth, 0, _fWidth - (newX + _sWidth), _fHeight);
+            [_tail setFrame: CGRectMake(newX + _sWidth, 0, _fWidth - (newX + _sWidth), _fHeight)];
             return;
         };
         case SliderButtonDirectionRight: {
@@ -142,9 +193,9 @@
             newX = MIN(_fWidth - _sWidth, newX);
             newX = MAX(0, newX);
             
-            _sliderTag.frame = CGRectMake(newX, _sliderTag.frame.origin.y, _sWidth, _sHeight);
+            [_sliderTag setFrame: CGRectMake(newX, _sliderTag.frame.origin.y, _sWidth, _sHeight)];
             
-            _tail.frame = CGRectMake(0, 0, newX, _fHeight);
+            [_tail setFrame: CGRectMake(0, 0, newX, _fHeight)];
             return;
         };
     }

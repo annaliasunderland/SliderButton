@@ -87,7 +87,10 @@
 // !!! HERE IS WHERE THE SLIDER BUTTON IS ADDED.
 - (void)_addSliderButton:(CGRect)frame{
     
-    _sliderButton1 = [[SliderButton alloc] initWithFrame:frame slideDirection:SliderButtonDirectionRight];
+    _sliderButton1 = [SliderButton sliderWithDirection:SliderButtonDirectionLeft];
+    [_sliderButton1 setFrame:frame];
+    
+//    _sliderButton1 = [[SliderButton alloc] initWithFrame:frame slideDirection:SliderButtonDirectionRight];
     [_sliderButton1 addTarget:self action:@selector(coolAction:) forControlEvents:UIControlEventValueChanged];
     [_simpleFrame addSubview:_sliderButton1];
     
