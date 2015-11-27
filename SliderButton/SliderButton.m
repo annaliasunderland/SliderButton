@@ -206,16 +206,6 @@ NSString *const SLIDER_IMG_RIGHT   = @"SwipeRight.png";
     [_tail setFrame:CGRectMake(newTailX, newTailY, newTailWid, newTailHei)];
 }
 
-// Resets the Slider Button to the start frame
--(void)_resetToStart {
-    [CATransaction begin];
-    [CATransaction setDisableActions:YES];
-    _sliderHead.hidden = NO;
-    _tail.frame = _startFrameTail;
-    _sliderHead.frame = _startFrameSlider;
-    [CATransaction commit];
-}
-
 // Snaps the Slider Button to the end frame
 -(void)_snapToComplete {
     [CATransaction begin];
@@ -250,7 +240,7 @@ NSString *const SLIDER_IMG_RIGHT   = @"SwipeRight.png";
         [self _snapToComplete];
         [self sendActionsForControlEvents:UIControlEventValueChanged];
     } else {
-        [self _resetToStart];
+        [self resetSliderButton];
     }
 }
 
@@ -258,12 +248,17 @@ NSString *const SLIDER_IMG_RIGHT   = @"SwipeRight.png";
 # pragma mark - reset methods
 // snaps immediately
 -(void)resetSliderButton {
-    [self _resetToStart];
+    [CATransaction begin];
+    [CATransaction setDisableActions:YES];
+    _sliderHead.hidden = NO;
+    _tail.frame = _startFrameTail;
+    _sliderHead.frame = _startFrameSlider;
+    [CATransaction commit];
 }
 
 // snaps after delay
 -(void)resetSliderButtonAfter:(float)delay {
-    [self performSelector:@selector(_resetToStart) withObject:nil afterDelay:delay];
+    [self performSelector:@selector(resetSliderButton) withObject:nil afterDelay:delay];
 }
 
 @end
