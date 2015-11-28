@@ -14,14 +14,19 @@
     self = [super initWithFrame:frame];
     if (self) {
         [self setBackgroundColor: [UIColor whiteColor]];
+        NSLog(@"width: %f",frame.size.width);
         CGRect innerFrame = CGRectMake(0, 0, frame.size.width, frame.size.height);
         _message = [UILabel new];
         [_message setText: @"Welcome."];
         [_message setFrame: innerFrame];
         [_message setTextAlignment: NSTextAlignmentCenter];
-        _sliderButton = [SliderButton sliderWithDirection:SliderButtonDirectionRight Frame: innerFrame];
         [self addSubview:_message];
-        [self addSubview:_sliderButton];
+        _sliderButtonUp = [SliderButton sliderWithDirection:SliderButtonDirectionUp ParentFrame: innerFrame];
+        [self addSubview:_sliderButtonUp];
+        _sliderButtonLeft = [SliderButton sliderWithDirection:SliderButtonDirectionLeft ParentFrame: innerFrame];
+        [self addSubview:_sliderButtonLeft];
+        _sliderButtonRight = [SliderButton sliderWithDirection:SliderButtonDirectionRight ParentFrame: innerFrame];
+        [self addSubview:_sliderButtonRight];
     }
     return self;
 }

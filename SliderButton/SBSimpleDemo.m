@@ -29,6 +29,8 @@
     
     SliderButton *_sliderButton1;
     SliderButton *_sliderButton2;
+    
+    SBSimpleDemoMsgBoxView *_messageBox;
 }
 
 - (void)viewDidLoad {
@@ -59,7 +61,11 @@
 //    
 //    [self _addSliderButton:reusableFrame]; // SLIDER BUTTON ADDED.
 //    [self.view addSubview:_simpleFrame];
-    [self.view addSubview:[[SBSimpleDemoMsgBoxView alloc] initWithFrame:CGRectMake(0, 100, FRAME_WIDTH, 100)]];
+    _messageBox = [[SBSimpleDemoMsgBoxView alloc] initWithFrame:CGRectMake(0, 100, FRAME_WIDTH, 100)];
+    [_messageBox.sliderButtonLeft addTarget:self action:@selector(coolAction1:) forControlEvents:UIControlEventValueChanged];
+    [_messageBox.sliderButtonRight addTarget:self action:@selector(coolAction2:) forControlEvents:UIControlEventValueChanged];
+    [_messageBox.sliderButtonUp addTarget:self action:@selector(coolAction3:) forControlEvents:UIControlEventValueChanged];
+    [self.view addSubview: _messageBox];
 }
 
 
@@ -89,18 +95,33 @@
 // !!! HERE IS WHERE THE SLIDER BUTTON IS ADDED.
 - (void)_addSliderButton:(CGRect)frame{
     
-    _sliderButton1 = [SliderButton sliderWithDirection:SliderButtonDirectionRight Frame:frame];
-    [_sliderButton1 addTarget:self action:@selector(coolAction:) forControlEvents:UIControlEventValueChanged];
-    [_simpleFrame addSubview:_sliderButton1];
+//    _sliderButton1 = [SliderButton sliderWithDirection:SliderButtonDirectionRight ParentFrame:frame];
+//    [_sliderButton1 addTarget:self action:@selector(coolAction:) forControlEvents:UIControlEventValueChanged];
+//    [_simpleFrame addSubview:_sliderButton1];
     
 //    _sliderButton2 = [[SliderButton alloc] initWithFrame:frame slideDirection:SliderButtonDirectionRight];
 //    [_sliderButton2 addTarget:self action:@selector(messagesAction:) forControlEvents:UIControlEventValueChanged];
 //    [_simpleFrame addSubview:_sliderButton2];
 }
 
-- (void)coolAction:(SliderButton *)slider {
-    [slider resetSliderButtonAfter:0.2];
-    _directions.text = [self getNextDirection];
+
+- (void)coolAction1:(SliderButton *)slider {
+    [_messageBox.sliderButtonLeft resetSliderButtonAfter:0.2];
+    NSLog(@"Hi to Left");
+//    [slider resetSliderButtonAfter:0.2];
+//    _directions.text = [self getNextDirection];
+}
+- (void)coolAction2:(SliderButton *)slider {
+    [_messageBox.sliderButtonRight resetSliderButtonAfter:0.2];
+    NSLog(@"Hi to Right");
+    //    [slider resetSliderButtonAfter:0.2];
+    //    _directions.text = [self getNextDirection];
+}
+- (void)coolAction3:(SliderButton *)slider {
+    [_messageBox.sliderButtonUp resetSliderButtonAfter:0.2];
+    NSLog(@"Hi to Up");
+    //    [slider resetSliderButtonAfter:0.2];
+    //    _directions.text = [self getNextDirection];
 }
 -(void) messagesAction:(SliderButton *)slider {
     NSLog(@"This");

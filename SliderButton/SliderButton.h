@@ -21,7 +21,7 @@ typedef enum {
 @property (nonatomic, readonly) SliderButtonDirection direction;
 
 +(instancetype)sliderWithDirection:(SliderButtonDirection)sliderButtonDirection
-                             Frame:(CGRect)frame;
+                       ParentFrame:(CGRect)parentFrame;
 
 -(void) resetSliderButton;
 -(void) resetSliderButtonAfter:(float)delay;

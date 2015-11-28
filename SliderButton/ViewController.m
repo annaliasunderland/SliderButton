@@ -59,7 +59,7 @@
     
     ////////////////////////////////////////////////////////////////////////////////////////////////
     // Slider Button !!! THIS IS THE EXAMPLE OF HOW TO USE SLIDER BUTTON
-    SliderButton *sbutton = [SliderButton sliderWithDirection:SliderButtonDirectionUp Frame:CGRectMake(0, 0, FRAME_WIDTH, 70)];
+    SliderButton *sbutton = [SliderButton sliderWithDirection:SliderButtonDirectionUp ParentFrame:CGRectMake(0, 0, FRAME_WIDTH, 70)];
     [sbutton addTarget:self action:@selector(completedSlide:) forControlEvents:UIControlEventValueChanged];
     [msgBg addSubview:sbutton];
     ////////////////////////////////////////////////////////////////////////////////////////////////

@@ -11,7 +11,11 @@
 
 @interface SBSimpleDemoMsgBoxView : UIView
 
-@property (nonatomic) SliderButton *sliderButton;
+@property (nonatomic) SliderButton *sliderButtonUp;
+@property (nonatomic) SliderButton *sliderButtonLeft;
+@property (nonatomic) SliderButton *sliderButtonRight;
+
+
 @property (nonatomic) UILabel *message;
 
 @end
