@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1D1CF88D1C09426C00728DBF /* SBSimpleDemoMsgBoxView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D1CF8881C09426C00728DBF /* SBSimpleDemoMsgBoxView.m */; };
+		1D1CF88E1C09426C00728DBF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1D1CF88A1C09426C00728DBF /* Assets.xcassets */; };
+		1D1CF88F1C09426C00728DBF /* Paragraph.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 1D1CF88B1C09426C00728DBF /* Paragraph.rtf */; };
+		1D1CF8901C09426C00728DBF /* Base.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 1D1CF88C1C09426C00728DBF /* Base.lproj */; };
 		1D55EB961C03BEFC00122950 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D55EB951C03BEFC00122950 /* main.m */; };
 		1D55EB991C03BEFC00122950 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D55EB981C03BEFC00122950 /* AppDelegate.m */; };
 		1D55EB9C1C03BEFC00122950 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D55EB9B1C03BEFC00122950 /* ViewController.m */; };
@@ -38,6 +42,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1D1CF8881C09426C00728DBF /* SBSimpleDemoMsgBoxView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBSimpleDemoMsgBoxView.m; sourceTree = "<group>"; };
+		1D1CF8891C09426C00728DBF /* SBSimpleDemoMsgBoxView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBSimpleDemoMsgBoxView.h; sourceTree = "<group>"; };
+		1D1CF88A1C09426C00728DBF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1D1CF88B1C09426C00728DBF /* Paragraph.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = Paragraph.rtf; sourceTree = "<group>"; };
+		1D1CF88C1C09426C00728DBF /* Base.lproj */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Base.lproj; sourceTree = "<group>"; };
 		1D55EB911C03BEFC00122950 /* SliderButton.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SliderButton.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D55EB951C03BEFC00122950 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		1D55EB971C03BEFC00122950 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -117,6 +126,11 @@
 				1D55EB941C03BEFC00122950 /* Supporting Files */,
 				1D7E4E2B1C03CCC100E0F204 /* SliderButton.h */,
 				1D7E4E2C1C03CCC100E0F204 /* SliderButton.m */,
+				1D1CF8881C09426C00728DBF /* SBSimpleDemoMsgBoxView.m */,
+				1D1CF8891C09426C00728DBF /* SBSimpleDemoMsgBoxView.h */,
+				1D1CF88A1C09426C00728DBF /* Assets.xcassets */,
+				1D1CF88B1C09426C00728DBF /* Paragraph.rtf */,
+				1D1CF88C1C09426C00728DBF /* Base.lproj */,
 				1DD5DCDC1C03EC4C0044DF73 /* UIColor+SliderButton.h */,
 				1DD5DCDD1C03EC4C0044DF73 /* UIColor+SliderButton.m */,
 			);
@@ -260,6 +274,9 @@
 			files = (
 				1D9318A61C03CA9C000A2C7C /* LaunchScreen.storyboard in Resources */,
 				1D55EBCD1C03C8CD00122950 /* Main.storyboard in Resources */,
+				1D1CF88E1C09426C00728DBF /* Assets.xcassets in Resources */,
+				1D1CF88F1C09426C00728DBF /* Paragraph.rtf in Resources */,
+				1D1CF8901C09426C00728DBF /* Base.lproj in Resources */,
 				1D55EBA11C03BEFC00122950 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -287,6 +304,7 @@
 			files = (
 				1D7E4E2D1C03CCC100E0F204 /* SliderButton.m in Sources */,
 				1D55EB9C1C03BEFC00122950 /* ViewController.m in Sources */,
+				1D1CF88D1C09426C00728DBF /* SBSimpleDemoMsgBoxView.m in Sources */,
 				1DD5DCE11C03FB760044DF73 /* SBSimpleDemo.m in Sources */,
 				1D55EB991C03BEFC00122950 /* AppDelegate.m in Sources */,
 				1D7E4E301C03CEB000E0F204 /* SBDemoView.m in Sources */,
