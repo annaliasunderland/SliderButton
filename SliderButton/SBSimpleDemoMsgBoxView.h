@@ -11,11 +11,13 @@
 
 @interface SBSimpleDemoMsgBoxView : UIView
 
-@property (nonatomic) SliderButton *sliderButtonUp;
-@property (nonatomic) SliderButton *sliderButtonLeft;
-@property (nonatomic) SliderButton *sliderButtonRight;
+@property (nonatomic, readonly) SliderButton *sliderButtonUp;
+@property (nonatomic, readonly) SliderButton *sliderButtonLeft;
+@property (nonatomic, readonly) SliderButton *sliderButtonRight;
 
 
-@property (nonatomic) UILabel *message;
+@property (nonatomic, readonly) UILabel *message;
+
+-(void) setMessageText:(NSString *)text;
 
 @end

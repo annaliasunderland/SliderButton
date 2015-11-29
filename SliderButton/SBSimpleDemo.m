@@ -16,19 +16,18 @@
 @end
 
 @implementation SBSimpleDemo {
-    UIView *_simpleFrame;
-    UILabel *_directions;
     
     int _counter;
     NSArray *_directionsArray; // loops through directions
+    
+    NSArray *_messageArray; // the different messages to show up
+    NSArray *_statesArray;
+    int counter;
     
     UIView *_otherFrame;
     
     int _swapIndex;
     BOOL _swapOccurred;
-    
-    SliderButton *_sliderButton1;
-    SliderButton *_sliderButton2;
     
     SBSimpleDemoMsgBoxView *_messageBox;
 }
@@ -36,97 +35,100 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor lightGrayColor];
+    [self setTitle:@"SliderButton Widget Demo"];
     
-//    _directionsArray = [NSArray arrayWithObjects:@"swipe right to continue", @"This is for creating an alternative to the buttons on iPhones", @"...", @"Swiping left takes you back. Try it!", @"In the following example, the swipe widget will take over send function in a messaging app; Swipe to continue", nil];
-//    _counter = 0;
+    _messageArray = [NSArray arrayWithObjects:
+                     @"Welcome to the Slider Widget Kit!",
+                     @"Swiping Right takes you forward.",
+                     @"Swiping Left takes you back.",
+                     @"In the following example, the SliderButton Widget will replace the Send Button function in a messaging app.",
+                     @"Swipe up to close this box.", nil];
+    
+    
+    
+    counter = 0;
     
     float FRAME_WIDTH = self.view.frame.size.width;
-//    _swapIndex = 3;
-//    _swapOccurred = NO;
-//    
-//    UILabel *welcome = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, FRAME_WIDTH, 100)];
-//    welcome.text = @"Welcome to the Swipe Kit Widget";
-//    welcome.textAlignment = NSTextAlignmentCenter;
-//    [self.view addSubview:welcome];
-//    
-//    _simpleFrame = [[UIView alloc] initWithFrame:CGRectMake(0, 100, FRAME_WIDTH, 100)];
-//    _simpleFrame.backgroundColor = [UIColor whiteColor];
-//    
-//    CGRect reusableFrame = CGRectMake(0, 0, FRAME_WIDTH, 100);
-//    _directions = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, FRAME_WIDTH, 100)];
-//    _directions.textAlignment = NSTextAlignmentCenter;
-//    _directions.font = [UIFont systemFontOfSize:10];
-//    _directions.text = _directionsArray[0];
-//    [_simpleFrame addSubview:_directions];
-//    
-//    [self _addSliderButton:reusableFrame]; // SLIDER BUTTON ADDED.
-//    [self.view addSubview:_simpleFrame];
-    _messageBox = [[SBSimpleDemoMsgBoxView alloc] initWithFrame:CGRectMake(0, 100, FRAME_WIDTH, 100)];
-    [_messageBox.sliderButtonLeft addTarget:self action:@selector(coolAction1:) forControlEvents:UIControlEventValueChanged];
-    [_messageBox.sliderButtonRight addTarget:self action:@selector(coolAction2:) forControlEvents:UIControlEventValueChanged];
-    [_messageBox.sliderButtonUp addTarget:self action:@selector(coolAction3:) forControlEvents:UIControlEventValueChanged];
+
+    _messageBox = [[SBSimpleDemoMsgBoxView alloc] initWithFrame:CGRectMake(20, 100, FRAME_WIDTH - 40, 100)];
+    
+    /****************************************************************************************************************************
+     ******* This is where the SliderButton's actions are set.
+     ******* You can use this as reference when using you own SliderButtons.                                                    */
+    
+    [_messageBox.sliderButtonLeft   addTarget:self action:@selector(leftAction:)    forControlEvents:UIControlEventValueChanged];
+    [_messageBox.sliderButtonRight  addTarget:self action:@selector(rightAction:)   forControlEvents:UIControlEventValueChanged];
+    [_messageBox.sliderButtonUp     addTarget:self action:@selector(upAction:)      forControlEvents:UIControlEventValueChanged];
+    
+    /****************************************************************************************************************************/
+    
+    
+    _statesArray = [NSArray arrayWithObjects:
+                    @{@"Text"       :@"Welcome to the Slider Widget Kit!",
+                      @"Visible"    :@[_messageBox.sliderButtonRight],
+                      @"Hidden"     :@[_messageBox.sliderButtonLeft, _messageBox.sliderButtonUp]},
+                    
+                    @{@"Text"       :@"Swiping Right takes you Forward.",
+                      @"Visible"    :@[_messageBox.sliderButtonRight],
+                      @"Hidden"     :@[_messageBox.sliderButtonLeft, _messageBox.sliderButtonUp]},
+                    
+                    @{@"Text"   :@"Swiping Left takes you Back.",
+                      @"Visible":@[_messageBox.sliderButtonRight, _messageBox.sliderButtonLeft],
+                      @"Hidden" :@[_messageBox.sliderButtonUp]},
+                    
+                    @{@"Text"   :@"In the following example, the SliderButton Widget will replace the Send Button function in a messaging app.",
+                      @"Visible":@[_messageBox.sliderButtonRight],
+                      @"Hidden" :@[_messageBox.sliderButtonUp, _messageBox.sliderButtonLeft]},
+                    nil];
+    
+    
+    
+    [self changeState:0];
+    
     [self.view addSubview: _messageBox];
 }
 
 
-- (NSString *)getNextDirection {
-    if (_sliderButton1.direction == SliderButtonDirectionRight) {
-        _counter++;
-        if (_counter == (_directionsArray.count - 1)) {
-             [_sliderButton1 addTarget:self action:@selector(messagesAction:) forControlEvents:UIControlEventValueChanged];
-        }
-    } else {
-        _counter--;
-        if (_counter < 0) {
-            _counter = _directionsArray.count - 1;
-        }
+# pragma mark - Part 1 Methods
+-(int)getNewCounter:(int)oldCounter
+          increment:(int)increment {
+    int newCounter = oldCounter + increment;
+    if (newCounter < 0) {
+        newCounter = _statesArray.count - 1;
     }
-    
-    if (_counter == _swapIndex) {
-//        _sliderButton1 = [[SliderButton alloc] initWithFrame:_sliderButton1.frame slideDirection:SliderButtonDirectionLeft];
-//        
-    }
-    
-    return _directionsArray[_counter];
+    return newCounter;
 }
 
-
-# pragma mark - Slider Button related methods
-// !!! HERE IS WHERE THE SLIDER BUTTON IS ADDED.
-- (void)_addSliderButton:(CGRect)frame{
-    
-//    _sliderButton1 = [SliderButton sliderWithDirection:SliderButtonDirectionRight ParentFrame:frame];
-//    [_sliderButton1 addTarget:self action:@selector(coolAction:) forControlEvents:UIControlEventValueChanged];
-//    [_simpleFrame addSubview:_sliderButton1];
-    
-//    _sliderButton2 = [[SliderButton alloc] initWithFrame:frame slideDirection:SliderButtonDirectionRight];
-//    [_sliderButton2 addTarget:self action:@selector(messagesAction:) forControlEvents:UIControlEventValueChanged];
-//    [_simpleFrame addSubview:_sliderButton2];
+-(void)changeState:(int)increment {
+    counter = [self getNewCounter:counter increment:increment];
+    if (counter >= _statesArray.count) {
+        // MOVE ONTO NEXT PART
+        return;
+    }
+    NSDictionary *stateInfo = [_statesArray objectAtIndex:counter];
+    [_messageBox setMessageText:[stateInfo objectForKey:@"Text"]];          // Change Message
+    NSArray *visibleSliderButtons = [stateInfo objectForKey:@"Visible"];    // Set visible SliderButtons
+    for (SliderButton *sb in visibleSliderButtons) {
+        [sb setHidden:NO];
+    }
+    NSArray *hiddenSliderButtons = [stateInfo objectForKey:@"Hidden"];      // Set hidden SliderButtons
+    for (SliderButton *sb in hiddenSliderButtons) {
+        [sb setHidden:YES];
+    }
 }
 
-
-- (void)coolAction1:(SliderButton *)slider {
+# pragma mark - Slider Button action methods set here
+- (void)leftAction:(SliderButton *)slider {
+    [self changeState:-1];
     [_messageBox.sliderButtonLeft resetSliderButtonAfter:0.2];
-    NSLog(@"Hi to Left");
-//    [slider resetSliderButtonAfter:0.2];
-//    _directions.text = [self getNextDirection];
 }
-- (void)coolAction2:(SliderButton *)slider {
+- (void)rightAction:(SliderButton *)slider {
+    [self changeState:1];
     [_messageBox.sliderButtonRight resetSliderButtonAfter:0.2];
-    NSLog(@"Hi to Right");
-    //    [slider resetSliderButtonAfter:0.2];
-    //    _directions.text = [self getNextDirection];
 }
-- (void)coolAction3:(SliderButton *)slider {
+- (void)upAction:(SliderButton *)slider {
     [_messageBox.sliderButtonUp resetSliderButtonAfter:0.2];
-    NSLog(@"Hi to Up");
-    //    [slider resetSliderButtonAfter:0.2];
-    //    _directions.text = [self getNextDirection];
 }
--(void) messagesAction:(SliderButton *)slider {
-    NSLog(@"This");
-}
-
 
 
 @end
