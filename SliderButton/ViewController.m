@@ -8,7 +8,6 @@
 
 #import "ViewController.h"
 #import "SliderButton.h"
-#import "UIColor+SliderButton.h"
 
 @interface ViewController ()
 

@@ -7,7 +7,6 @@
 //
 
 #import "SliderButton.h"
-#import "UIColor+SliderButton.h"
 
 @implementation SliderButton {
 

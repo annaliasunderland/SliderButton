@@ -8,7 +8,6 @@
 
 #import "SBSimpleDemo.h"
 #import "SliderButton.h"
-#import "UIColor+SliderButton.h"
 #import "SBSimpleDemoMsgBoxView.h"
 
 @interface SBSimpleDemo ()

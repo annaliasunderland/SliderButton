@@ -7,7 +7,6 @@
 //
 
 #import "SBSimpleDemoMsgBoxView.h"
-#import "UIColor+SliderButton.h"
 
 @implementation SBSimpleDemoMsgBoxView
 

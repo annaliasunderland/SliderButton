@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UIColor+SliderButton.h"
 
 @interface SliderButton : UIControl
 
