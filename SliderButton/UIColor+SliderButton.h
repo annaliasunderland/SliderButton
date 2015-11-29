@@ -11,5 +11,6 @@
 @interface UIColor (SliderButton)
 
 +(UIColor *) mainAppColor;
++(UIColor *) leftSliderButtonColor;
 
 @end

@@ -14,4 +14,8 @@
     return [UIColor colorWithRed:42.0/255.0 green:80.0/255.0 blue:163.0/255.0 alpha:1.0];
 }
 
++(UIColor *) leftSliderButtonColor {
+    return [UIColor colorWithRed:99.0/255.0 green:99.0/255.0 blue:99.0/255.0 alpha:1.0];
+}
+
 @end
