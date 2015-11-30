@@ -8,7 +8,6 @@
 //  This is used for testing out the widget.
 
 #import "AppDelegate.h"
-#import "ViewController.h"
 #import "SBSimpleDemo.h"
 #import "UIColor+SliderButton.h"
 
