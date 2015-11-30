@@ -17,7 +17,6 @@
 @end
 
 @implementation AppDelegate {
-//    ViewController *_mainVController;
     SBSimpleDemo *_mainVController;
     UINavigationController *_navController;
 }

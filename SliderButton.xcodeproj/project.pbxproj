@@ -13,7 +13,6 @@
 		1D1BE83C1C0C03D1001B6B62 /* SBPastMsgScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D1BE8361C0C03D1001B6B62 /* SBPastMsgScrollView.m */; };
 		1D1BE83D1C0C03D1001B6B62 /* SBMsgDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D1BE8371C0C03D1001B6B62 /* SBMsgDemoViewController.m */; };
 		1D1BE83E1C0C03D1001B6B62 /* SBTypeMsgView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D1BE8381C0C03D1001B6B62 /* SBTypeMsgView.m */; };
-		1D1BE8431C0C03F7001B6B62 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D1BE83F1C0C03F7001B6B62 /* ViewController.m */; };
 		1D1BE8441C0C03F7001B6B62 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D1BE8401C0C03F7001B6B62 /* AppDelegate.m */; };
 		1D1CF88E1C09426C00728DBF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1D1CF88A1C09426C00728DBF /* Assets.xcassets */; };
 		1D1CF88F1C09426C00728DBF /* Paragraph.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 1D1CF88B1C09426C00728DBF /* Paragraph.rtf */; };
@@ -56,10 +55,8 @@
 		1D1BE8391C0C03D1001B6B62 /* SBPastMsgScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SBPastMsgScrollView.h; path = SliderButtonDemo/SBPastMsgScrollView.h; sourceTree = SOURCE_ROOT; };
 		1D1BE83A1C0C03D1001B6B62 /* SBMsgDemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SBMsgDemoViewController.h; path = SliderButtonDemo/SBMsgDemoViewController.h; sourceTree = SOURCE_ROOT; };
 		1D1BE83B1C0C03D1001B6B62 /* SBTypeMsgView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SBTypeMsgView.h; path = SliderButtonDemo/SBTypeMsgView.h; sourceTree = SOURCE_ROOT; };
-		1D1BE83F1C0C03F7001B6B62 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ViewController.m; path = SliderButtonDemo/ViewController.m; sourceTree = SOURCE_ROOT; };
 		1D1BE8401C0C03F7001B6B62 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = SliderButtonDemo/AppDelegate.m; sourceTree = SOURCE_ROOT; };
 		1D1BE8411C0C03F7001B6B62 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = SliderButtonDemo/AppDelegate.h; sourceTree = SOURCE_ROOT; };
-		1D1BE8421C0C03F7001B6B62 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ViewController.h; path = SliderButtonDemo/ViewController.h; sourceTree = SOURCE_ROOT; };
 		1D1CF88A1C09426C00728DBF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1D1CF88B1C09426C00728DBF /* Paragraph.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = Paragraph.rtf; sourceTree = "<group>"; };
 		1D1CF88C1C09426C00728DBF /* Base.lproj */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Base.lproj; sourceTree = "<group>"; };
@@ -110,6 +107,7 @@
 				1D55EB931C03BEFC00122950 /* SliderButton */,
 				1D55EBC81C03C47600122950 /* SliderButton Demo */,
 				1D55EB921C03BEFC00122950 /* Products */,
+				1D55EB941C03BEFC00122950 /* Supporting Files */,
 			);
 			sourceTree = "<group>";
 		};
@@ -128,7 +126,6 @@
 			children = (
 				1D1CF88B1C09426C00728DBF /* Paragraph.rtf */,
 				1D55EBA51C03BEFC00122950 /* Info.plist */,
-				1D55EB941C03BEFC00122950 /* Supporting Files */,
 				1DA90A2E1C0B9ABD0062DB90 /* SliderButton */,
 				1D1CF88A1C09426C00728DBF /* Assets.xcassets */,
 				1D1CF88C1C09426C00728DBF /* Base.lproj */,
@@ -143,15 +140,14 @@
 				1D55EB951C03BEFC00122950 /* main.m */,
 			);
 			name = "Supporting Files";
+			path = SliderButton;
 			sourceTree = "<group>";
 		};
 		1D55EBC81C03C47600122950 /* SliderButton Demo */ = {
 			isa = PBXGroup;
 			children = (
-				1D1BE83F1C0C03F7001B6B62 /* ViewController.m */,
-				1D1BE8401C0C03F7001B6B62 /* AppDelegate.m */,
 				1D1BE8411C0C03F7001B6B62 /* AppDelegate.h */,
-				1D1BE8421C0C03F7001B6B62 /* ViewController.h */,
+				1D1BE8401C0C03F7001B6B62 /* AppDelegate.m */,
 				1DA9F5241C0C00B30045A9C7 /* Demo Part 2 */,
 				1DA90A2F1C0BADE40062DB90 /* Demo Part 1 */,
 			);
@@ -173,10 +169,10 @@
 		1DA90A2F1C0BADE40062DB90 /* Demo Part 1 */ = {
 			isa = PBXGroup;
 			children = (
+				1D1BE8331C0C0397001B6B62 /* SBSimpleDemo.h */,
 				1D1BE8301C0C0397001B6B62 /* SBSimpleDemo.m */,
 				1D1BE8311C0C0397001B6B62 /* SBSimpleDemoMsgBoxView.m */,
 				1D1BE8321C0C0397001B6B62 /* SBSimpleDemoMsgBoxView.h */,
-				1D1BE8331C0C0397001B6B62 /* SBSimpleDemo.h */,
 			);
 			name = "Demo Part 1";
 			sourceTree = "<group>";
@@ -184,8 +180,8 @@
 		1DA9F5231C0C00A60045A9C7 /* TextBubble */ = {
 			isa = PBXGroup;
 			children = (
-				1D1BE82D1C0C0354001B6B62 /* TextBubbleView.m */,
 				1D1BE82E1C0C0354001B6B62 /* TextBubbleView.h */,
+				1D1BE82D1C0C0354001B6B62 /* TextBubbleView.m */,
 			);
 			name = TextBubble;
 			sourceTree = "<group>";
@@ -193,8 +189,8 @@
 		1DA9F5241C0C00B30045A9C7 /* Demo Part 2 */ = {
 			isa = PBXGroup;
 			children = (
-				1D1BE8371C0C03D1001B6B62 /* SBMsgDemoViewController.m */,
 				1D1BE83A1C0C03D1001B6B62 /* SBMsgDemoViewController.h */,
+				1D1BE8371C0C03D1001B6B62 /* SBMsgDemoViewController.m */,
 				1D1BE8391C0C03D1001B6B62 /* SBPastMsgScrollView.h */,
 				1D1BE8361C0C03D1001B6B62 /* SBPastMsgScrollView.m */,
 				1D1BE83B1C0C03D1001B6B62 /* SBTypeMsgView.h */,
@@ -341,7 +337,6 @@
 				1D1BE83E1C0C03D1001B6B62 /* SBTypeMsgView.m in Sources */,
 				1D7E4E2D1C03CCC100E0F204 /* SliderButton.m in Sources */,
 				1D1BE83C1C0C03D1001B6B62 /* SBPastMsgScrollView.m in Sources */,
-				1D1BE8431C0C03F7001B6B62 /* ViewController.m in Sources */,
 				1D1BE83D1C0C03D1001B6B62 /* SBMsgDemoViewController.m in Sources */,
 				1D1BE82F1C0C0354001B6B62 /* TextBubbleView.m in Sources */,
 				1D55EB961C03BEFC00122950 /* main.m in Sources */,
