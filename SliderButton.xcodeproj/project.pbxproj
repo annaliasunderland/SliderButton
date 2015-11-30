@@ -21,7 +21,6 @@
 		1D55EBCD1C03C8CD00122950 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D55EBCC1C03C8CD00122950 /* Main.storyboard */; };
 		1D7E4E2D1C03CCC100E0F204 /* SliderButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D7E4E2C1C03CCC100E0F204 /* SliderButton.m */; };
 		1D9318A61C03CA9C000A2C7C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D9318A51C03CA9C000A2C7C /* LaunchScreen.storyboard */; };
-		1DC5D14A1C0C0F8D004414D7 /* Base.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 1DC5D1491C0C0F8D004414D7 /* Base.lproj */; };
 		1DD5DCDE1C03EC4C0044DF73 /* UIColor+SliderButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DD5DCDD1C03EC4C0044DF73 /* UIColor+SliderButton.m */; };
 /* End PBXBuildFile section */
 
@@ -69,7 +68,6 @@
 		1D7E4E2B1C03CCC100E0F204 /* SliderButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SliderButton.h; sourceTree = "<group>"; };
 		1D7E4E2C1C03CCC100E0F204 /* SliderButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SliderButton.m; sourceTree = "<group>"; };
 		1D9318A51C03CA9C000A2C7C /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
-		1DC5D1491C0C0F8D004414D7 /* Base.lproj */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Base.lproj; path = ../Base.lproj; sourceTree = "<group>"; };
 		1DD5DCDC1C03EC4C0044DF73 /* UIColor+SliderButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+SliderButton.h"; sourceTree = "<group>"; };
 		1DD5DCDD1C03EC4C0044DF73 /* UIColor+SliderButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+SliderButton.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -128,7 +126,6 @@
 				1D55EBA51C03BEFC00122950 /* Info.plist */,
 				1DA90A2E1C0B9ABD0062DB90 /* SliderButton */,
 				1D1CF88A1C09426C00728DBF /* Assets.xcassets */,
-				1DC5D1491C0C0F8D004414D7 /* Base.lproj */,
 			);
 			path = SliderButton;
 			sourceTree = "<group>";
@@ -306,7 +303,6 @@
 				1D55EBCD1C03C8CD00122950 /* Main.storyboard in Resources */,
 				1D1CF88E1C09426C00728DBF /* Assets.xcassets in Resources */,
 				1D1CF88F1C09426C00728DBF /* Paragraph.rtf in Resources */,
-				1DC5D14A1C0C0F8D004414D7 /* Base.lproj in Resources */,
 				1D55EBA11C03BEFC00122950 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
