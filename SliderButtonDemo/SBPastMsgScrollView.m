@@ -28,12 +28,12 @@
         self.showsVerticalScrollIndicator = YES;
         self.translatesAutoresizingMaskIntoConstraints = NO;
         // So it still doesn't scroll.
-        // But since this isn't the main part of this assignment, I will look into this another day.
+        // But since this isn't the main part of this assignment, we will look into this another day.
         
         xOffset = self.frame.size.width - 10;
         yOffset = self.frame.origin.y + 10;
         [self addMessage:@"Type your message in the bottom and swipe the Slider Button up to send!"];
-        [self addMessage:@"If you don't see your message after swiping up, it's because this Scroll View has scrolled under the Navigation bar to make room for the ridiculously large keyboard. Just click anywhere (other than the keyboard)."];
+        [self addMessage:@"If you don't see your message, click anywhere to dismiss this giant keyboard."];
 //        [self addMessage:@"Ohhhhhhhhhhh"];
 //        [self addMessage:@"I wish you could meet my girlfriend."];
 //        [self addMessage:@"My girlfriend who lives in canada!"];
@@ -57,7 +57,7 @@
     [deliveryLabel setTextColor:[UIColor lightGrayColor]];
     [deliveryLabel setFrame:CGRectMake(xOffset - deliveryLabel.frame.size.width,
                                        yOffset, deliveryLabel.frame.size.width, deliveryLabel.frame.size.height)];
-    yOffset = yOffset + deliveryLabel.frame.size.height + 12;
+    yOffset = yOffset + deliveryLabel.frame.size.height + 10;
     [self addSubview:newText];
     [self addSubview:deliveryLabel];
 }
