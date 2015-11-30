@@ -102,7 +102,7 @@ NSString *const SLIDER_IMG_RIGHT   = @"SwipeRight.png";
             
             startX      = _parentWid/2 - _headWid/2;
             startY      = _parentHei - _headHei;
-            _endY       = _parentHei/3;
+            _endY       = _parentHei/2;
             _startTail  = CGRectMake(-1 * startX,   _headHei,   _parentWid,  0);
             [_tail setBackgroundColor:[UIColor mainAppColor]];
             break;
@@ -111,7 +111,7 @@ NSString *const SLIDER_IMG_RIGHT   = @"SwipeRight.png";
         case SliderButtonDirectionLeft: {
             startX      = _parentWid - _headWid;
             startY      = (_parentHei/2) - (_headHei/2);
-            _endX       = _parentWid/3;
+            _endX       = _parentWid/2;
             _startTail  = CGRectMake(_headWid,      -1 * startY,    0,              _parentHei);
             
             [_tail setBackgroundColor:[UIColor leftSliderButtonColor]];
@@ -121,7 +121,7 @@ NSString *const SLIDER_IMG_RIGHT   = @"SwipeRight.png";
         case SliderButtonDirectionRight: {
             startX      = 0;
             startY      = (_parentHei/2) - (_headHei/2);
-            _endX       = 2 * _parentWid / 3;
+            _endX       = _parentWid / 2;
             _startTail  = CGRectMake(0,                 -1 * startY,    0,              _parentHei);
             [_tail setBackgroundColor:[UIColor mainAppColor]];
             break;

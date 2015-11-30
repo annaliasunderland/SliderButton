@@ -9,17 +9,13 @@
 #import "SBSimpleDemo.h"
 #import "SliderButton.h"
 #import "SBSimpleDemoMsgBoxView.h"
-
-@interface SBSimpleDemo ()
-
-@end
+#import "SBMsgDemoViewController.h"
 
 @implementation SBSimpleDemo {
     
     int _counter;
     NSArray *_directionsArray; // loops through directions
     
-    NSArray *_messageArray; // the different messages to show up
     NSArray *_statesArray;
     int counter;
     
@@ -33,15 +29,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor lightGrayColor];
+    [self.view setBackgroundColor:[UIColor colorWithRed:232.0/255.0 green:232.0/255.0 blue:232.0/255.0 alpha:1.0]];
     [self setTitle:@"SliderButton Widget Demo"];
-    
-    _messageArray = [NSArray arrayWithObjects:
-                     @"Welcome to the Slider Widget Kit!",
-                     @"Swiping Right takes you forward.",
-                     @"Swiping Left takes you back.",
-                     @"In the following example, the SliderButton Widget will replace the Send Button function in a messaging app.",
-                     @"Swipe up to close this box.", nil];
     
     
     
@@ -75,6 +64,10 @@
                       @"Visible":@[_messageBox.sliderButtonRight, _messageBox.sliderButtonLeft],
                       @"Hidden" :@[_messageBox.sliderButtonUp]},
                     
+                    @{@"Text"   :@"The Slider Button can also swipe up!",
+                      @"Visible":@[_messageBox.sliderButtonRight, _messageBox.sliderButtonLeft, _messageBox.sliderButtonUp],
+                      @"Hidden" :@[]},
+                    
                     @{@"Text"   :@"In the following example, the SliderButton Widget will replace the Send Button function in a messaging app.",
                       @"Visible":@[_messageBox.sliderButtonRight],
                       @"Hidden" :@[_messageBox.sliderButtonUp, _messageBox.sliderButtonLeft]},
@@ -101,7 +94,8 @@
 -(void)changeState:(int)increment {
     counter = [self getNewCounter:counter increment:increment];
     if (counter >= _statesArray.count) {
-        // MOVE ONTO NEXT PART
+        SBMsgDemoViewController *msgDemoViewController = [[SBMsgDemoViewController alloc] init];
+        [self.navigationController pushViewController:msgDemoViewController animated:NO];
         return;
     }
     NSDictionary *stateInfo = [_statesArray objectAtIndex:counter];
@@ -126,6 +120,7 @@
     [_messageBox.sliderButtonRight resetSliderButtonAfter:0.2];
 }
 - (void)upAction:(SliderButton *)slider {
+    [_messageBox setMessageText:@"Yup, you swiped up. Swipe right now to continue."];
     [_messageBox.sliderButtonUp resetSliderButtonAfter:0.2];
 }
 

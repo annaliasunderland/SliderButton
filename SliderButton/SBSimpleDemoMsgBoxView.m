@@ -14,6 +14,9 @@
     self = [super initWithFrame:frame];
     if (self) {
         [self setBackgroundColor: [UIColor whiteColor]];
+        [self.layer setCornerRadius:20.0f];
+        [self.layer setMasksToBounds:YES];
+        
         CGRect innerFrame   = CGRectMake(0, 0, frame.size.width, frame.size.height);
         CGRect messageFrame = CGRectMake(25, 0, frame.size.width - 50, frame.size.height);
         _message = [UILabel new];

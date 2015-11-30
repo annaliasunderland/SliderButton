@@ -1,5 +1,5 @@
 //
-//  SBMessageDemo.h
+//  SBPastMsgScrollView.h
 //  SliderButton
 //
 //  Created by Annalia Sunderland on 11/29/15.
@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-//#import <MessageUI/MFMessageComposeViewController.h>
 
-@interface SBMessageDemo : UIViewController
+@interface SBPastMsgScrollView : UIScrollView
+
+-(void)addMessage:(NSString *)message;
 
 @end

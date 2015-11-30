@@ -1,5 +1,5 @@
 //
-//  SBMessageDemo.h
+//  TextBubbleView.h
 //  SliderButton
 //
 //  Created by Annalia Sunderland on 11/29/15.
@@ -7,8 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-//#import <MessageUI/MFMessageComposeViewController.h>
 
-@interface SBMessageDemo : UIViewController
+@interface TextBubbleView : UIView
+
+@property (nonatomic, readonly) UILabel *text;
+
++(TextBubbleView*)textBubbleWithText:(NSString *)text;
 
 @end

@@ -11,6 +11,10 @@
 		1D1CF88E1C09426C00728DBF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1D1CF88A1C09426C00728DBF /* Assets.xcassets */; };
 		1D1CF88F1C09426C00728DBF /* Paragraph.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 1D1CF88B1C09426C00728DBF /* Paragraph.rtf */; };
 		1D1CF8901C09426C00728DBF /* Base.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 1D1CF88C1C09426C00728DBF /* Base.lproj */; };
+		1D20AA031C0BB67D00DC23BD /* SBTypeMsgView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D20AA021C0BB67D00DC23BD /* SBTypeMsgView.m */; };
+		1D20AA061C0BC7A300DC23BD /* SBPastMsgScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D20AA051C0BC7A300DC23BD /* SBPastMsgScrollView.m */; };
+		1D20AA091C0BCC4C00DC23BD /* SBMsgDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D20AA081C0BCC4C00DC23BD /* SBMsgDemoViewController.m */; };
+		1D20AA0C1C0BD80F00DC23BD /* TextBubbleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D20AA0B1C0BD80F00DC23BD /* TextBubbleView.m */; };
 		1D55EB961C03BEFC00122950 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D55EB951C03BEFC00122950 /* main.m */; };
 		1D55EB991C03BEFC00122950 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D55EB981C03BEFC00122950 /* AppDelegate.m */; };
 		1D55EB9C1C03BEFC00122950 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D55EB9B1C03BEFC00122950 /* ViewController.m */; };
@@ -20,7 +24,6 @@
 		1D7E4E2D1C03CCC100E0F204 /* SliderButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D7E4E2C1C03CCC100E0F204 /* SliderButton.m */; };
 		1D7E4E301C03CEB000E0F204 /* SBDemoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D7E4E2F1C03CEB000E0F204 /* SBDemoView.m */; };
 		1D9318A61C03CA9C000A2C7C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D9318A51C03CA9C000A2C7C /* LaunchScreen.storyboard */; };
-		1DA90A321C0BADFF0062DB90 /* SBMessageDemo.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DA90A311C0BADFE0062DB90 /* SBMessageDemo.m */; };
 		1DD5DCDE1C03EC4C0044DF73 /* UIColor+SliderButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DD5DCDD1C03EC4C0044DF73 /* UIColor+SliderButton.m */; };
 		1DD5DCE11C03FB760044DF73 /* SBSimpleDemo.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DD5DCE01C03FB760044DF73 /* SBSimpleDemo.m */; };
 /* End PBXBuildFile section */
@@ -48,6 +51,14 @@
 		1D1CF88A1C09426C00728DBF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1D1CF88B1C09426C00728DBF /* Paragraph.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = Paragraph.rtf; sourceTree = "<group>"; };
 		1D1CF88C1C09426C00728DBF /* Base.lproj */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Base.lproj; sourceTree = "<group>"; };
+		1D20AA011C0BB67D00DC23BD /* SBTypeMsgView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBTypeMsgView.h; sourceTree = "<group>"; };
+		1D20AA021C0BB67D00DC23BD /* SBTypeMsgView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBTypeMsgView.m; sourceTree = "<group>"; };
+		1D20AA041C0BC7A300DC23BD /* SBPastMsgScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBPastMsgScrollView.h; sourceTree = "<group>"; };
+		1D20AA051C0BC7A300DC23BD /* SBPastMsgScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBPastMsgScrollView.m; sourceTree = "<group>"; };
+		1D20AA071C0BCC4C00DC23BD /* SBMsgDemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBMsgDemoViewController.h; sourceTree = "<group>"; };
+		1D20AA081C0BCC4C00DC23BD /* SBMsgDemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBMsgDemoViewController.m; sourceTree = "<group>"; };
+		1D20AA0A1C0BD80F00DC23BD /* TextBubbleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextBubbleView.h; sourceTree = "<group>"; };
+		1D20AA0B1C0BD80F00DC23BD /* TextBubbleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextBubbleView.m; sourceTree = "<group>"; };
 		1D55EB911C03BEFC00122950 /* SliderButton.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SliderButton.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D55EB951C03BEFC00122950 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		1D55EB971C03BEFC00122950 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -66,8 +77,6 @@
 		1D7E4E2E1C03CEB000E0F204 /* SBDemoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBDemoView.h; sourceTree = "<group>"; };
 		1D7E4E2F1C03CEB000E0F204 /* SBDemoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBDemoView.m; sourceTree = "<group>"; };
 		1D9318A51C03CA9C000A2C7C /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
-		1DA90A301C0BADFE0062DB90 /* SBMessageDemo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBMessageDemo.h; sourceTree = "<group>"; };
-		1DA90A311C0BADFE0062DB90 /* SBMessageDemo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBMessageDemo.m; sourceTree = "<group>"; };
 		1DD5DCDC1C03EC4C0044DF73 /* UIColor+SliderButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+SliderButton.h"; sourceTree = "<group>"; };
 		1DD5DCDD1C03EC4C0044DF73 /* UIColor+SliderButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+SliderButton.m"; sourceTree = "<group>"; };
 		1DD5DCDF1C03FB760044DF73 /* SBSimpleDemo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBSimpleDemo.h; sourceTree = "<group>"; };
@@ -158,8 +167,14 @@
 				1D55EB981C03BEFC00122950 /* AppDelegate.m */,
 				1D55EB9A1C03BEFC00122950 /* ViewController.h */,
 				1D55EB9B1C03BEFC00122950 /* ViewController.m */,
-				1DA90A301C0BADFE0062DB90 /* SBMessageDemo.h */,
-				1DA90A311C0BADFE0062DB90 /* SBMessageDemo.m */,
+				1D20AA071C0BCC4C00DC23BD /* SBMsgDemoViewController.h */,
+				1D20AA081C0BCC4C00DC23BD /* SBMsgDemoViewController.m */,
+				1D20AA011C0BB67D00DC23BD /* SBTypeMsgView.h */,
+				1D20AA021C0BB67D00DC23BD /* SBTypeMsgView.m */,
+				1D20AA0A1C0BD80F00DC23BD /* TextBubbleView.h */,
+				1D20AA0B1C0BD80F00DC23BD /* TextBubbleView.m */,
+				1D20AA041C0BC7A300DC23BD /* SBPastMsgScrollView.h */,
+				1D20AA051C0BC7A300DC23BD /* SBPastMsgScrollView.m */,
 				1DA90A2F1C0BADE40062DB90 /* Demo Part 1 */,
 				1D7E4E2E1C03CEB000E0F204 /* SBDemoView.h */,
 				1D7E4E2F1C03CEB000E0F204 /* SBDemoView.m */,
@@ -323,14 +338,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				1D7E4E2D1C03CCC100E0F204 /* SliderButton.m in Sources */,
+				1D20AA031C0BB67D00DC23BD /* SBTypeMsgView.m in Sources */,
 				1D55EB9C1C03BEFC00122950 /* ViewController.m in Sources */,
+				1D20AA061C0BC7A300DC23BD /* SBPastMsgScrollView.m in Sources */,
+				1D20AA091C0BCC4C00DC23BD /* SBMsgDemoViewController.m in Sources */,
 				1D1CF88D1C09426C00728DBF /* SBSimpleDemoMsgBoxView.m in Sources */,
 				1DD5DCE11C03FB760044DF73 /* SBSimpleDemo.m in Sources */,
 				1D55EB991C03BEFC00122950 /* AppDelegate.m in Sources */,
-				1DA90A321C0BADFF0062DB90 /* SBMessageDemo.m in Sources */,
 				1D7E4E301C03CEB000E0F204 /* SBDemoView.m in Sources */,
 				1D55EB961C03BEFC00122950 /* main.m in Sources */,
 				1DD5DCDE1C03EC4C0044DF73 /* UIColor+SliderButton.m in Sources */,
+				1D20AA0C1C0BD80F00DC23BD /* TextBubbleView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
