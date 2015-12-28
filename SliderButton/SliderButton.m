@@ -13,22 +13,28 @@
     UIImageView *_head;
     UIView      *_tail;
     
-    float       _headHei,   _headWid;
-    float       _parentHei, _parentWid;
+    float   _headHei;
+    float   _headWid;
     
-    CGRect      _startFrame;
-    CGRect      _completeFrame;
+    float   _parentHei;
+    float   _parentWid;
     
-    float       _endX, _endY;
+    CGRect  _startFrame;
+    CGRect  _completeFrame;
     
-    CGRect      _startTail; // endTail = parentFrame
-    CGRect      _startHead; // endHead is when it is hidden
+    float   _endX;
+    float   _endY;
+    
+    CGRect  _startTail; // endTail = parentFrame
+    CGRect  _startHead; // endHead is when it is hidden
     
 }
 
 NSString *const SLIDER_IMG_UP      = @"New_Half.png";
 NSString *const SLIDER_IMG_LEFT    = @"SwipeLeft.png";
 NSString *const SLIDER_IMG_RIGHT   = @"SwipeRight.png";
+
+float const RATIO = 0.5;
 
 # pragma mark - Init
 
@@ -99,31 +105,33 @@ NSString *const SLIDER_IMG_RIGHT   = @"SwipeRight.png";
     
     switch (sliderButtonDirection) {
         case SliderButtonDirectionUp: {
-            
-            startX      = _parentWid/2 - _headWid/2;
+            startX      = RATIO * _parentWid - RATIO * _headWid;
             startY      = _parentHei - _headHei;
-            _endY       = _parentHei/2;
-            _startTail  = CGRectMake(-1 * startX,   _headHei,   _parentWid,  0);
-            [_tail setBackgroundColor:[UIColor mainAppColor]];
+            _endY       = RATIO * _parentHei;
+            _startTail  = CGRectMake(-1 * startX, _headHei,
+                                     _parentWid,  0);
+            [_tail setBackgroundColor:[UIColor defaultColorUp]];
             break;
         };
             
         case SliderButtonDirectionLeft: {
             startX      = _parentWid - _headWid;
-            startY      = (_parentHei/2) - (_headHei/2);
-            _endX       = _parentWid/2;
-            _startTail  = CGRectMake(_headWid,      -1 * startY,    0,              _parentHei);
+            startY      = (RATIO * _parentHei) - (RATIO * _headHei);
+            _endX       = RATIO * _parentWid;
+            _startTail  = CGRectMake(_headWid, -1 * startY,
+                                     0, _parentHei);
             
-            [_tail setBackgroundColor:[UIColor leftSliderButtonColor]];
+            [_tail setBackgroundColor:[UIColor defaultColorLeft]];
             break;
         };
 
         case SliderButtonDirectionRight: {
             startX      = 0;
-            startY      = (_parentHei/2) - (_headHei/2);
-            _endX       = _parentWid / 2;
-            _startTail  = CGRectMake(0,                 -1 * startY,    0,              _parentHei);
-            [_tail setBackgroundColor:[UIColor mainAppColor]];
+            startY      = (RATIO * _parentHei) - (RATIO * _headHei);
+            _endX       = RATIO * _parentWid;
+            _startTail  = CGRectMake(0, -1 * startY,
+                                     0, _parentHei);
+            [_tail setBackgroundColor:[UIColor defaultColorRight]];
             break;
         };
     }                       //   x          y           width       height
@@ -134,6 +142,7 @@ NSString *const SLIDER_IMG_RIGHT   = @"SwipeRight.png";
 
 # pragma mark - Update Views (Private Methods)
 
+// TODO how mask tag?
 // Updates the Slider Button to the new Origin; updates Tail and SliderHead Frames
 -(void) _moveSliderTo:(CGPoint) newOrigin {
     
@@ -148,27 +157,27 @@ NSString *const SLIDER_IMG_RIGHT   = @"SwipeRight.png";
         case SliderButtonDirectionUp: {         // Move entire frame up, not headFrame; only change tail height
             
             newFrameY       = self.frame.origin.y + newOrigin.y;
-            newFrameY       = MIN(newFrameY, _parentHei - _headHei);
-            newFrameY       = MAX(newFrameY, 0);
+            newFrameY       = MIN(newFrameY, _parentHei);
+            newFrameY       = MAX(newFrameY, -1 * _headHei);
             
-            newTailHeight   = _parentHei - _headHei- newFrameY;
+            newTailHeight   = _parentHei - newFrameY;
             break;
         };
             
         case SliderButtonDirectionLeft: {       // Move entire frame left, not headFrame; only change tail width
             
             newFrameX       = self.frame.origin.x + newOrigin.x;
-            newFrameX       = MIN(newFrameX, _parentWid - _headWid);
-            newFrameX       = MAX(newFrameX, 0);
+            newFrameX       = MIN(newFrameX, _parentWid);
+            newFrameX       = MAX(newFrameX, -1 * _headWid);
             
-            newTailWidth    = _parentWid - _headWid - newFrameX;
+            newTailWidth    = _parentWid - newFrameX;
             break;
         };
             
         case SliderButtonDirectionRight: {      // Move entire frame right, not headFrame; only change tail width
 
             newFrameX       = self.frame.origin.x + newOrigin.x;
-            newFrameX       = MIN(newFrameX, _parentWid - _headWid);
+            newFrameX       = MIN(newFrameX, _parentWid);
             newFrameX       = MAX(newFrameX, 0);
             
             newTailX        = -1 * newFrameX;

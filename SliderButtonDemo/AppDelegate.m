@@ -29,7 +29,7 @@
     
     // Nav
     _navController = [[UINavigationController alloc] initWithRootViewController:_mainVController];
-    _navController.navigationBar.barTintColor = [UIColor mainAppColor];
+    _navController.navigationBar.barTintColor = [UIColor defaultColorRight];
     _navController.navigationBar.barStyle = UIBarStyleBlack;
     _navController.navigationBar.translucent = NO;
     [_navController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];

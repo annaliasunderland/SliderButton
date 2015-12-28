@@ -10,7 +10,10 @@
 
 @interface UIColor (SliderButton)
 
-+(UIColor *) mainAppColor;
-+(UIColor *) leftSliderButtonColor;
++(UIColor *) defaultColorRight;
++(UIColor *) defaultColorLeft;
++(UIColor *) defaultColorUp;
+//+(UIColor *) mainAppColor;
+//+(UIColor *) leftSliderButtonColor;
 
 @end

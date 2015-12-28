@@ -27,7 +27,7 @@ CGFloat const MINIMUM_HEIGHT = 22.0f;
     if (self) {
         [self.layer setCornerRadius:15.0f];
         [self.layer setMasksToBounds:YES];
-        [self setBackgroundColor:[UIColor mainAppColor]];
+        [self setBackgroundColor:[UIColor defaultColorRight]];
         
         _text=[UILabel new];
         [_text setTextAlignment:NSTextAlignmentCenter];

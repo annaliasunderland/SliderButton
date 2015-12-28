@@ -23,7 +23,7 @@
         [_message setText: @"Welcome."];
         [_message setFrame: messageFrame];
         [_message setTextAlignment: NSTextAlignmentCenter];
-        [_message setTextColor:[UIColor mainAppColor]];
+        [_message setTextColor:[UIColor defaultColorRight]];
         _message.lineBreakMode = NSLineBreakByWordWrapping;
         _message.numberOfLines = 3;
         [self addSubview:_message];
